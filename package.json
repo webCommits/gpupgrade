@@ -1,0 +1,27 @@
+{
+  "name": "gpupgrade",
+  "version": "1.0.0",
+  "description": "GPUpgrade is a web tool for PC gamers to compare GPU performance consistently. Features include an upgrade calculator, direct comparisons, search &amp; filters. Built on reputable data, it helps decide if an upgrade is worth it. Mobile-friendly, fast, and future-expandable.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve",
+    "deploy": "npm run build && git add docs && git commit -m 'Deploy' && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webCommits/gpupgrade.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/webCommits/gpupgrade/issues"
+  },
+  "homepage": "https://github.com/webCommits/gpupgrade#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}
