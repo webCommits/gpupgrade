@@ -1,10 +1,7 @@
 module.exports = function(eleventyConfig) {
 
   // Passthroughs
-  eleventyConfig.addPassthroughCopy("src/static/style.css");
-  eleventyConfig.addPassthroughCopy("src/static/script.js");
-  eleventyConfig.addPassthroughCopy("src/static/images");
-  eleventyConfig.addPassthroughCopy("src/static/svg");
+  eleventyConfig.addPassthroughCopy("src/assets/");
 
   // Global Data
   eleventyConfig.addGlobalData("global", () => {

@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+    <title>{{ title or "GPU Upgrade Calculator" }}</title>
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
     </style>
+    <link rel="stylesheet" href="{{ global.url }}/assets/css/base.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
+
 <body>
     <header>
-        Test
+        <nav>
+            <a href="{{ global.url }}/">Home</a> |
+            <a href="{{ global.url }}/gpu/">GPU List</a> |
+            <a href="{{ global.url }}/gpu/compare/">Compare</a>
+        </nav>
     </header>
+
     <main>
         {% block content %}
         {% endblock %}
     </main>
+
     <footer>
-        
+        <p>GPU Upgrade Calculator - Data from TechPowerUp</p>
     </footer>
+
+    <script>
+        window.gpuData = {{gpus | dump | safe}};
+    </script>
+    <script src="{{ global.url }}/assets/js/base.js"></script>
 </body>
+
 </html>
