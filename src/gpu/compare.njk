@@ -1,0 +1,246 @@
+---
+title: "GPUpgrade | Compare GPUs"
+---
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container">
+    <h1 class="page-title">GPU Comparison</h1>
+    <p class="page-subtitle">Compare graphics cards to see the performance difference</p>
+  </div>
+</section>
+
+<section class="compare-section">
+  <div class="container">
+    <div x-data="gpuComparer" x-init="init()" class="comparer">
+
+      <!-- GPU Selection -->
+      <div class="comparison-setup">
+        <div class="gpu-selector-grid">
+
+          <!-- GPU 1 Selector -->
+          <div class="gpu-selector">
+            <h2 class="gpu-selector-title">First GPU</h2>
+            <div class="search-container" x-data="{ focused: false }">
+              <input type="text" x-model="gpu1Query" @input="searchGPUs('gpu1')"
+                @focus="showDropdown1 = true; focused = true" @blur="focused = false" placeholder="Search for first GPU"
+                class="search-input" :class="{ 'search-input-focused': focused }" autocomplete="off">
+              <div class="search-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+              </div>
+
+              <!-- Dropdown 1 -->
+              <div x-show="showDropdown1 && filteredGPUs1.length > 0" x-transition:enter="dropdown-enter"
+                x-transition:enter-start="dropdown-enter-start" x-transition:enter-end="dropdown-enter-end"
+                x-transition:leave="dropdown-leave" x-transition:leave-start="dropdown-leave-start"
+                x-transition:leave-end="dropdown-leave-end" class="dropdown">
+                <template x-for="gpu in filteredGPUs1.slice(0, 8)" :key="gpu.slug">
+                  <div @click="selectGPU(gpu, 'gpu1')" class="dropdown-item">
+                    <span x-text="gpu.name" class="dropdown-item-name"></span>
+                    <span x-text="gpu.score + ' pts'" class="dropdown-item-score"></span>
+                  </div>
+                </template>
+              </div>
+            </div>
+
+            <!-- Selected GPU 1 -->
+            <div x-show="gpu1" x-transition:enter="card-enter" x-transition:enter-start="card-enter-start"
+              x-transition:enter-end="card-enter-end" class="selected-gpu">
+              <div class="selected-gpu-content">
+                <div class="selected-gpu-info">
+                  <h3 class="selected-gpu-name" x-text="gpu1?.name"></h3>
+                  <p class="selected-gpu-score">
+                    Performance: <span x-text="gpu1 ? gpu1.score + ' pts' : ''"></span>
+                  </p>
+                </div>
+                <button @click="clearGPU('gpu1')" class="btn btn-secondary btn-sm">
+                  Clear
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- VS Divider -->
+          <div class="vs-divider">
+            <div class="vs-circle">
+              <span class="vs-text">VS</span>
+            </div>
+          </div>
+
+          <!-- GPU 2 Selector -->
+          <div class="gpu-selector">
+            <h2 class="gpu-selector-title">Second GPU</h2>
+            <div class="search-container" x-data="{ focused: false }">
+              <input type="text" x-model="gpu2Query" @input="searchGPUs('gpu2')"
+                @focus="showDropdown2 = true; focused = true" @blur="focused = false"
+                placeholder="Search for second GPU" class="search-input" :class="{ 'search-input-focused': focused }"
+                autocomplete="off">
+              <div class="search-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+              </div>
+
+              <!-- Dropdown 2 -->
+              <div x-show="showDropdown2 && filteredGPUs2.length > 0" x-transition:enter="dropdown-enter"
+                x-transition:enter-start="dropdown-enter-start" x-transition:enter-end="dropdown-enter-end"
+                x-transition:leave="dropdown-leave" x-transition:leave-start="dropdown-leave-start"
+                x-transition:leave-end="dropdown-leave-end" class="dropdown">
+                <template x-for="gpu in filteredGPUs2.slice(0, 8)" :key="gpu.slug">
+                  <div @click="selectGPU(gpu, 'gpu2')" class="dropdown-item">
+                    <span x-text="gpu.name" class="dropdown-item-name"></span>
+                    <span x-text="gpu.score + ' pts'" class="dropdown-item-score"></span>
+                  </div>
+                </template>
+              </div>
+            </div>
+
+            <!-- Selected GPU 2 -->
+            <div x-show="gpu2" x-transition:enter="card-enter" x-transition:enter-start="card-enter-start"
+              x-transition:enter-end="card-enter-end" class="selected-gpu">
+              <div class="selected-gpu-content">
+                <div class="selected-gpu-info">
+                  <h3 class="selected-gpu-name" x-text="gpu2?.name"></h3>
+                  <p class="selected-gpu-score">
+                    Performance: <span x-text="gpu2 ? gpu2.score + ' pts' : ''"></span>
+                  </p>
+                </div>
+                <button @click="clearGPU('gpu2')" class="btn btn-secondary btn-sm">
+                  Clear
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Compare Button -->
+        <div class="compare-button-section">
+          <button @click="calculateComparison()" :disabled="!gpu1 || !gpu2" class="btn btn-primary btn-large"
+            :class="{ 'btn-disabled': !gpu1 || !gpu2 }">
+            <span x-show="!isComparing">Compare Performance</span>
+            <span x-show="isComparing" class="loading-spinner">
+              <svg class="spinner" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-dasharray="31.416" stroke-dashoffset="31.416">
+                  <animate attributeName="stroke-dasharray" dur="2s" values="0 31.416;15.708 15.708;0 31.416"
+                    repeatCount="indefinite" />
+                  <animate attributeName="stroke-dashoffset" dur="2s" values="0;-15.708;-31.416"
+                    repeatCount="indefinite" />
+              </svg>
+              Comparing...
+            </span>
+          </button>
+          <p x-show="!gpu1 || !gpu2" class="help-text">
+            Please select both GPUs to compare
+          </p>
+        </div>
+      </div>
+
+      <!-- Comparison Result -->
+      <div x-show="comparison" x-transition:enter="results-enter" x-transition:enter-start="results-enter-start"
+        x-transition:enter-end="results-enter-end" class="comparison-result">
+
+        <h2 class="section-title">Comparison Result</h2>
+
+        <div class="comparison-cards">
+          <!-- GPU 1 Card -->
+          <div class="comparison-card"
+            :class="{ 'comparison-card-winner': comparison?.gpu1.score > comparison?.gpu2.score }">
+            <div class="comparison-card-header">
+              <h3 class="comparison-card-title" x-text="comparison?.gpu1.name"></h3>
+              <div x-show="comparison?.gpu1.score > comparison?.gpu2.score" class="winner-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                Winner
+              </div>
+            </div>
+            <div class="comparison-stats">
+              <div class="stat">
+                <span class="stat-label">Performance Score</span>
+                <span class="stat-value" x-text="comparison?.gpu1.score + ' pts'"></span>
+              </div>
+              <div class="performance-bar">
+                <div class="performance-bar-fill"
+                  :style="'width: ' + (comparison?.gpu1.score / Math.max(comparison?.gpu1.score, comparison?.gpu2.score) * 100) + '%'">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Performance Difference -->
+          <div class="performance-difference">
+            <div class="difference-circle">
+              <span class="difference-value" x-text="Math.abs(Math.round(comparison?.improvement || 0)) + '%'"></span>
+            </div>
+            <p class="difference-text">
+              <span x-show="comparison?.improvement > 0">
+                Second GPU is <span class="accent-text" x-text="Math.round(comparison?.improvement)"></span>% faster
+              </span>
+              <span x-show="comparison?.improvement < 0">
+                First GPU is <span class="accent-text" x-text="Math.round(Math.abs(comparison?.improvement))"></span>%
+                faster
+              </span>
+              <span x-show="comparison?.improvement === 0">
+                Both GPUs have identical performance
+              </span>
+            </p>
+          </div>
+
+          <!-- GPU 2 Card -->
+          <div class="comparison-card"
+            :class="{ 'comparison-card-winner': comparison?.gpu2.score > comparison?.gpu1.score }">
+            <div class="comparison-card-header">
+              <h3 class="comparison-card-title" x-text="comparison?.gpu2.name"></h3>
+              <div x-show="comparison?.gpu2.score > comparison?.gpu1.score" class="winner-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                Winner
+              </div>
+            </div>
+            <div class="comparison-stats">
+              <div class="stat">
+                <span class="stat-label">Performance Score</span>
+                <span class="stat-value" x-text="comparison?.gpu2.score + ' pts'"></span>
+              </div>
+              <div class="performance-bar">
+                <div class="performance-bar-fill"
+                  :style="'width: ' + (comparison?.gpu2.score / Math.max(comparison?.gpu1.score, comparison?.gpu2.score) * 100) + '%'">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Actions -->
+        <div class="comparison-actions">
+          <button @click="swapGPUs()" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 2l4 4-4 4M3 6h18M7 22l-4-4 4-4M21 18H3" />
+            </svg>
+            Swap GPUs
+          </button>
+          <a href="/gpu/" class="btn btn-secondary">
+            Compare Different GPUs
+          </a>
+          <button @click="useWorseInCalculator()" x-show="comparison && comparison.improvement !== 0"
+            class="btn btn-primary">
+            Find Upgrades for
+            <span x-text="comparison?.improvement > 0 ? comparison?.gpu1.name : comparison?.gpu2.name"></span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

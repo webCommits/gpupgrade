@@ -4,242 +4,205 @@ title: "GPUpgrade | GPU List"
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-<h1>GPU Performance List</h1>
-<p>Complete list of GPUs with performance scores</p>
-
-<div x-data="gpuList()" x-init="init()">
-
-  <!-- Search and Filters -->
-  <div style="background: #f8f9fa; padding: 20px; border-radius: 4px; margin-bottom: 30px;">
-
-    <!-- Search -->
-    <div style="margin-bottom: 20px;">
-      <label><strong>Search GPUs:</strong></label><br>
-      <input type="text" x-model="searchQuery" @input="filterGPUs()" placeholder="Search by name (RTX, RX, 4090...)"
-        style="width: 400px; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-    </div>
-
-    <!-- Brand Filter -->
-    <div style="margin-bottom: 20px;">
-      <label><strong>Brand:</strong></label><br>
-      <label style="margin-right: 15px;">
-        <input type="radio" x-model="brandFilter" value="all" @change="filterGPUs()" name="brand">
-        All
-      </label>
-      <label style="margin-right: 15px;">
-        <input type="radio" x-model="brandFilter" value="nvidia" @change="filterGPUs()" name="brand">
-        NVIDIA
-      </label>
-      <label>
-        <input type="radio" x-model="brandFilter" value="amd" @change="filterGPUs()" name="brand">
-        AMD
-      </label>
-    </div>
-
-    <!-- Sort Options -->
-    <div style="margin-bottom: 20px;">
-      <label><strong>Sort by:</strong></label><br>
-      <select x-model="sortBy" @change="sortGPUs()" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
-        <option value="name">Name (A-Z)</option>
-        <option value="performance_4k">4K Performance</option>
-        <option value="performance_1440p">1440p Performance</option>
-        <option value="performance_1080p">1080p Performance</option>
-      </select>
-      <label style="margin-left: 15px;">
-        <input type="checkbox" x-model="sortDescending" @change="sortGPUs()">
-        Descending
-      </label>
-    </div>
-
-    <!-- Results Count -->
-    <div style="color: #666;">
-      Showing <span x-text="filteredGPUs.length"></span> of <span x-text="allGPUs.length"></span> GPUs
-    </div>
+<section class="page-header">
+  <div class="container">
+    <h1 class="page-title">GPU Performance List</h1>
+    <p class="page-subtitle">Complete database of graphics cards with performance scores</p>
   </div>
+</section>
 
+<section class="gpu-list-section">
+  <div class="container">
+    <div x-data="gpuList" x-init="init()" class="gpu-list">
 
-  <!-- GPU Grid -->
-  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px;">
-    <template x-for="gpu in filteredGPUs.slice(0, visibleCount)" :key="gpu.slug">
-      <div style="border: 1px solid #ddd; padding: 20px; border-radius: 4px; background: white;">
+      <!-- Search and Filters -->
+      <div class="filters-panel">
+        <div class="filters-grid">
 
-        <!-- GPU Header -->
-        <h3 style="margin: 0 0 5px 0;" x-text="gpu.name"></h3>
+          <!-- Search -->
+          <div class="filter-group">
+            <label class="filter-label">Search GPUs</label>
+            <div class="search-container">
+              <input type="text" x-model="searchQuery" @input="filterGPUs()"
+                placeholder="Search by name (RTX, RX, 4090...)" class="search-input">
+              <div class="search-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
 
-        <!-- Performance Score -->
-        <div style="margin-bottom: 15px; font-size: 14px;">
-          <strong>Performance Score:</strong>
-          <span x-text="gpu.score"></span>
+          <!-- Brand Filter -->
+          <div class="filter-group">
+            <label class="filter-label">Brand</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" x-model="brandFilter" value="all" @change="filterGPUs()" name="brand">
+                <span class="radio-button"></span>
+                All
+              </label>
+              <label class="radio-option">
+                <input type="radio" x-model="brandFilter" value="nvidia" @change="filterGPUs()" name="brand">
+                <span class="radio-button"></span>
+                NVIDIA
+              </label>
+              <label class="radio-option">
+                <input type="radio" x-model="brandFilter" value="amd" @change="filterGPUs()" name="brand">
+                <span class="radio-button"></span>
+                AMD
+              </label>
+            </div>
+          </div>
+
+          <!-- Sort Options -->
+          <div class="filter-group">
+            <label class="filter-label">Sort by</label>
+            <div class="select-group">
+              <select x-model="sortBy" @change="sortGPUs()" class="select-input">
+                <option value="name">Name (A-Z)</option>
+                <option value="score">Performance Score</option>
+              </select>
+              <label class="checkbox-option">
+                <input type="checkbox" x-model="sortDescending" @change="sortGPUs()">
+                <span class="checkbox"></span>
+                Descending
+              </label>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Performance Bar -->
-        <div style="background: #e9ecef; height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 10px;">
-          <div style="height: 100%; background: linear-gradient(90deg, #007bff, #28a745); border-radius: 4px;"
-            :style="'width: ' + Math.min((gpu.performanceScore / maxPerformance * 100), 100) + '%'">
+        <!-- Results Count -->
+        <div class="results-info">
+          <span class="results-count">
+            Showing <span x-text="Math.min(filteredGPUs.length, visibleCount)" class="accent-text"></span>
+            of <span x-text="filteredGPUs.length" class="accent-text"></span> GPUs
+          </span>
+          <div class="view-toggle" x-data="{ viewMode: 'grid' }">
+            <button @click="viewMode = 'grid'" :class="{ active: viewMode === 'grid' }" class="view-button"
+              aria-label="Grid view">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </button>
+            <button @click="viewMode = 'list'" :class="{ active: viewMode === 'list' }" class="view-button"
+              aria-label="List view">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+            </button>
           </div>
         </div>
-
-        <!-- Actions -->
-        <div style="display: flex; gap: 10px;">
-          <button @click="selectForComparison(gpu)"
-            style="flex: 1; padding: 8px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
-            Add to Compare
-          </button>
-          <button @click="useInCalculator(gpu)"
-            style="flex: 1; padding: 8px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">
-            Use in Calculator
-          </button>
-        </div>
       </div>
-    </template>
-  </div>
 
-  <!-- Show more button -->
-  <div x-show="filteredGPUs.length > visibleCount" style="text-align: center; margin-top: 20px;">
-    <button @click="showMore()"
-      style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
-      Show More GPUs
-    </button>
-  </div>
-  <!-- No Results -->
-  <div x-show="filteredGPUs.length === 0"
-    style="text-align: center; padding: 40px; background: #f8f9fa; border-radius: 4px;">
-    <h3>No GPUs found</h3>
-    <p>Try adjusting your search or filter criteria.</p>
-  </div>
+      <!-- GPU Grid -->
+      <div class="gpu-grid" :class="{ 'gpu-grid-list': viewMode === 'list' }">
+        <template x-for="(gpu, index) in filteredGPUs.slice(0, visibleCount)" :key="gpu.slug">
+          <div class="gpu-card" x-transition:enter="card-enter" x-transition:enter-start="card-enter-start"
+            x-transition:enter-end="card-enter-end" :style="'animation-delay: ' + (index % 20 * 0.05) + 's'">
 
-  <!-- Comparison Bar (if GPUs selected) -->
-  <div x-show="selectedForComparison.length > 0"
-    style="position: fixed; bottom: 0; left: 0; right: 0; background: #343a40; color: white; padding: 15px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1);">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-      <div>
-        <strong>Selected for comparison:</strong>
-        <span x-text="selectedForComparison.length"></span> GPU(s)
-        <template x-for="gpu in selectedForComparison">
-          <span style="margin-left: 10px; background: #007bff; padding: 4px 8px; border-radius: 3px; font-size: 12px;"
-            x-text="gpu.name"></span>
+            <!-- GPU Header -->
+            <div class="gpu-card-header">
+              <h3 class="gpu-card-title" x-text="gpu.name"></h3>
+              <div class="gpu-card-brand" x-text="getBrand(gpu.name)"></div>
+            </div>
+
+            <!-- Performance Score -->
+            <div class="gpu-card-score">
+              <span class="score-label">Performance Score</span>
+              <span class="score-value" x-text="gpu.score"></span>
+            </div>
+
+            <!-- Performance Bar -->
+            <div class="performance-bar">
+              <div class="performance-bar-fill"
+                :style="'width: ' + Math.min((gpu.score / maxPerformance * 100), 100) + '%'">
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="gpu-card-actions">
+              <button @click="selectForComparison(gpu)" :class="{ 'btn-selected': isSelected(gpu) }"
+                class="btn btn-secondary btn-sm" :aria-label="'Add ' + gpu.name + ' to comparison'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                Compare
+              </button>
+              <button @click="useInCalculator(gpu)" class="btn btn-primary btn-sm"
+                :aria-label="'Use ' + gpu.name + ' in calculator'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Calculate
+              </button>
+            </div>
+          </div>
         </template>
       </div>
-      <div>
-        <button @click="goToComparison()"
-          style="background: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-right: 10px;">
-          Compare Now
-        </button>
-        <button @click="clearComparison()"
-          style="background: #dc3545; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
-          Clear All
+
+      <!-- Show more button -->
+      <div x-show="filteredGPUs.length > visibleCount" class="show-more-section">
+        <button @click="showMore()" class="btn btn-secondary btn-large">
+          Show More GPUs
         </button>
       </div>
+
+      <!-- No Results -->
+      <div x-show="filteredGPUs.length === 0" class="no-results">
+        <div class="no-results-icon">🎮</div>
+        <h3 class="no-results-title">No GPUs found</h3>
+        <p class="no-results-text">Try adjusting your search or filter criteria.</p>
+        <button @click="clearFilters()" class="btn btn-secondary">
+          Clear Filters
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Comparison Bar -->
+<div x-show="selectedForComparison.length > 0" x-transition:enter="comparison-bar-enter"
+  x-transition:enter-start="comparison-bar-enter-start" x-transition:enter-end="comparison-bar-enter-end"
+  x-transition:leave="comparison-bar-leave" x-transition:leave-start="comparison-bar-leave-start"
+  x-transition:leave-end="comparison-bar-leave-end" class="comparison-bar">
+  <div class="comparison-bar-content">
+    <div class="comparison-info">
+      <span class="comparison-label">Selected for comparison:</span>
+      <span class="comparison-count"
+        x-text="selectedForComparison.length + ' GPU' + (selectedForComparison.length > 1 ? 's' : '')"></span>
+      <div class="comparison-chips">
+        <template x-for="gpu in selectedForComparison.slice(0, 3)" :key="gpu.slug">
+          <span class="comparison-chip" x-text="gpu.name"></span>
+        </template>
+        <span x-show="selectedForComparison.length > 3" class="comparison-chip">
+          +<span x-text="selectedForComparison.length - 3"></span> more
+        </span>
+      </div>
+    </div>
+    <div class="comparison-actions">
+      <button @click="goToComparison()" :disabled="selectedForComparison.length < 2" class="btn btn-primary"
+        :class="{ 'btn-disabled': selectedForComparison.length < 2 }">
+        Compare Now
+      </button>
+      <button @click="clearComparison()" class="btn btn-secondary">
+        Clear All
+      </button>
     </div>
   </div>
 </div>
-
-
-<script>
-  function gpuList() {
-    return {
-      allGPUs: [],
-      filteredGPUs: [],
-      searchQuery: '',
-      brandFilter: 'all',
-      sortBy: 'performanceScore',
-      sortDescending: true,
-      selectedForComparison: [],
-      maxPerformance: 0,
-      visibleCount: 20, // Limit für "Show More"
-
-
-      init() {
-        if (window.gpuData?.gpus) {
-          this.allGPUs = Object.entries(window.gpuData.gpus).map(([slug, gpu]) => ({
-            slug,
-            name: gpu.name,
-            score: gpu.score
-          }));
-          this.filteredGPUs = this.allGPUs;
-        }
-      },
-
-      filterGPUs() {
-        let filtered = [...this.allGPUs];
-
-        // Textsuche
-        if (this.searchQuery.length >= 1) {
-          filtered = filtered.filter(gpu =>
-            gpu.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-          );
-        }
-
-        // Brand-Filter
-        if (this.brandFilter === 'nvidia') {
-          filtered = filtered.filter(gpu =>
-            gpu.name.toLowerCase().includes('rtx') ||
-            gpu.name.toLowerCase().includes('gtx') ||
-            gpu.name.toLowerCase().includes('geforce')
-          );
-        } else if (this.brandFilter === 'amd') {
-          filtered = filtered.filter(gpu =>
-            gpu.name.toLowerCase().includes('rx') ||
-            gpu.name.toLowerCase().includes('radeon')
-          );
-        }
-
-        this.filteredGPUs = filtered;
-        this.sortGPUs();
-      },
-
-      sortGPUs() {
-        this.filteredGPUs.sort((a, b) => {
-          let aVal = a[this.sortBy];
-          let bVal = b[this.sortBy];
-
-          if (typeof aVal === 'string') {
-            return this.sortDescending ? bVal.localeCompare(aVal) : aVal.localeCompare(bVal);
-          }
-
-          aVal = aVal || 0;
-          bVal = bVal || 0;
-          return this.sortDescending ? bVal - aVal : aVal - bVal;
-        });
-      },
-
-      showMore() {
-        this.visibleCount += 20;
-      },
-
-      selectForComparison(gpu) {
-        const index = this.selectedForComparison.findIndex(selected => selected.slug === gpu.slug);
-
-        if (index === -1) {
-          if (this.selectedForComparison.length < 4) {
-            this.selectedForComparison.push(gpu);
-          } else {
-            alert('You can compare up to 4 GPUs at once.');
-          }
-        } else {
-          this.selectedForComparison.splice(index, 1);
-        }
-      },
-
-      useInCalculator(gpu) {
-        localStorage.setItem('selectedGPU', JSON.stringify(gpu));
-        window.location.href = '/';
-      },
-
-      goToComparison() {
-        if (this.selectedForComparison.length < 2) {
-          alert('Please select at least 2 GPUs to compare.');
-          return;
-        }
-
-        localStorage.setItem('comparisonGPUs', JSON.stringify(this.selectedForComparison));
-        window.location.href = '/gpu/compare/';
-      },
-
-      clearComparison() {
-        this.selectedForComparison = [];
-      }
-    };
-  }
-</script>
 {% endblock %}

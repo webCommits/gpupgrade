@@ -4,219 +4,170 @@ title: "GPUpgrade | Home"
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-<h1>GPU Upgrade Calculator</h1>
-<p>Find out if your GPU upgrade is worth it!</p>
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Find Your Perfect
+        <span class="hero-title-accent">GPU Upgrade</span>
+      </h1>
+      <p class="hero-subtitle">
+        Discover if your graphics card upgrade is worth it with our intelligent performance calculator.
+      </p>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-glow"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div x-data="upgradeCalculator()" x-init="init()">
+<section class="calculator-section">
+  <div class="container">
+    <div x-data="upgradeCalculator" x-init="init()" class="calculator">
 
-  <!-- Current GPU Selection -->
-  <div style="margin-bottom: 30px;">
-    <h2>Your Current GPU</h2>
-    <div style="position: relative; display: inline-block;">
-      <input type="text" x-model="searchQuery" @input="searchGPUs()" @focus="showDropdown = true"
-        placeholder="Search for your GPU (e.g., RTX 3070)"
-        style="width: 400px; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+      <!-- Current GPU Selection -->
+      <div class="input-group">
+        <h2 class="section-title">Your Current GPU</h2>
+        <div class="search-container" x-data="{ focused: false }">
+          <input type="text" x-model="searchQuery" @input="searchGPUs()" @focus="showDropdown = true; focused = true"
+            @blur="focused = false" placeholder="Search for your GPU (e.g., RTX 3070)" class="search-input"
+            :class="{ 'search-input-focused': focused }" autocomplete="off">
 
-      <!-- Dropdown -->
-      <div x-show="showDropdown && filteredGPUs.length > 0"
-        style="position: absolute; top: 100%; left: 0; right: 0; border: 1px solid #ccc; max-height: 200px; overflow-y: auto; background: white; z-index: 10;">
-        <template x-for="gpu in filteredGPUs.slice(0, 8)" :key="gpu.slug">
-          <div @click="selectGPU(gpu)" style="padding: 10px; cursor: pointer; border-bottom: 1px solid #eee;"
-            @mouseenter="$el.style.backgroundColor = '#f0f0f0'" @mouseleave="$el.style.backgroundColor = 'white'">
-            <span x-text="gpu.name"></span>
+          <!-- Search icon -->
+          <div class="search-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
           </div>
-        </template>
+
+          <!-- Dropdown -->
+          <div x-show="showDropdown && filteredGPUs.length > 0" x-transition:enter="dropdown-enter"
+            x-transition:enter-start="dropdown-enter-start" x-transition:enter-end="dropdown-enter-end"
+            x-transition:leave="dropdown-leave" x-transition:leave-start="dropdown-leave-start"
+            x-transition:leave-end="dropdown-leave-end" class="dropdown">
+            <template x-for="gpu in filteredGPUs.slice(0, 8)" :key="gpu.slug">
+              <div @click="selectGPU(gpu)" class="dropdown-item">
+                <span x-text="gpu.name" class="dropdown-item-name"></span>
+                <span x-text="gpu.score + ' pts'" class="dropdown-item-score"></span>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <!-- Selected GPU Display -->
+        <div x-show="selectedGPU" x-transition:enter="card-enter" x-transition:enter-start="card-enter-start"
+          x-transition:enter-end="card-enter-end" class="selected-gpu">
+          <div class="selected-gpu-content">
+            <div class="selected-gpu-info">
+              <h3 class="selected-gpu-name" x-text="selectedGPU?.name"></h3>
+              <p class="selected-gpu-score">
+                Performance: <span x-text="selectedGPU ? selectedGPU.score + ' pts' : ''"></span>
+              </p>
+            </div>
+            <button @click="clearSelection()" class="btn btn-secondary btn-sm">
+              Clear
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Selected GPU Display -->
-    <div x-show="selectedGPU" style="margin-top: 15px; padding: 15px; background: #e8f4fd; border-radius: 4px;">
-      <strong>Selected GPU:</strong> <span x-text="selectedGPU?.name"></span>
-      <button @click="clearSelection()" style="margin-left: 15px; padding: 5px 10px;">Clear</button>
-
-      <!-- Current GPU Performance -->
-      <div style="margin-top: 10px;">
-        <strong>Current Performance:</strong>
-        <span x-text="selectedGPU ? selectedGPU.score + ' pts' : ''"></span>
+      <!-- Performance Slider -->
+      <div class="input-group">
+        <h2 class="section-title">Minimum Performance Improvement</h2>
+        <div class="slider-container">
+          <input type="range" x-model="minImprovement" min="10" max="100" step="5" class="slider"
+            style="--value: {{ minImprovement }}%">
+          <div class="slider-labels">
+            <span class="slider-label">10%</span>
+            <span class="slider-value" x-text="minImprovement + '%'"></span>
+            <span class="slider-label">100%</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Performance Improvement Slider -->
-  <div style="margin-bottom: 30px;">
-    <h2>Minimum Performance Improvement</h2>
-    <div style="width: 400px;">
-      <input type="range" x-model="minImprovement" min="10" max="100" step="5" style="width: 100%;">
-      <div style="display: flex; justify-content: space-between; margin-top: 5px;">
-        <span>10%</span>
-        <span style="font-weight: bold; color: #0066cc;" x-text="minImprovement + '%'"></span>
-        <span>100%</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Calculate Button -->
-  <div style="margin-bottom: 30px;">
-    <button @click="calculateUpgrades()" :disabled="!selectedGPU"
-      :style="!selectedGPU ? 'background: #ccc; cursor: not-allowed;' : 'background: #0066cc; color: white; cursor: pointer;'"
-      style="padding: 15px 30px; font-size: 18px; border: none; border-radius: 4px;">
-      Calculate Upgrades
-    </button>
-    <div x-show="!selectedGPU" style="color: #666; margin-top: 5px;">
-      Please select a GPU first
-    </div>
-  </div>
-
-  <!-- Results -->
-  <div x-show="results.length > 0">
-    <h2>Upgrade Recommendations (<span x-text="results.length"></span> found)</h2>
-    <p style="color: #666; margin-bottom: 20px;">
-      Showing GPUs with at least <span x-text="minImprovement"></span>% improvement
-    </p>
-
-    <template x-for="(result, index) in results.slice(0, 10)" :key="result.slug">
-      <div style="border: 1px solid #ddd; margin-bottom: 15px; padding: 20px; border-radius: 4px; background: white;">
-        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
-          <h3 style="margin: 0; color: #333;" x-text="result.name"></h3>
-          <span style="background: #28a745; color: white; padding: 5px 10px; border-radius: 3px; font-weight: bold;">
-            +<span x-text="Math.round(result.improvement)"></span>%
+      <!-- Calculate Button -->
+      <div class="input-group">
+        <button @click="calculateUpgrades()" :disabled="!selectedGPU" class="btn btn-primary btn-large"
+          :class="{ 'btn-disabled': !selectedGPU }">
+          <span x-show="!isCalculating">Calculate Upgrades</span>
+          <span x-show="isCalculating" class="loading-spinner">
+            <svg class="spinner" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-dasharray="31.416" stroke-dashoffset="31.416">
+                <animate attributeName="stroke-dasharray" dur="2s" values="0 31.416;15.708 15.708;0 31.416"
+                  repeatCount="indefinite" />
+                <animate attributeName="stroke-dashoffset" dur="2s" values="0;-15.708;-31.416"
+                  repeatCount="indefinite" />
+            </svg>
+            Calculating...
           </span>
+        </button>
+        <p x-show="!selectedGPU" class="help-text">
+          Please select a GPU first
+        </p>
+      </div>
+
+      <!-- Results -->
+      <div x-show="results.length > 0" x-transition:enter="results-enter" x-transition:enter-start="results-enter-start"
+        x-transition:enter-end="results-enter-end" class="results-section">
+        <h2 class="section-title">
+          Upgrade Recommendations
+          <span class="results-count" x-text="'(' + results.length + ' found)'"></span>
+        </h2>
+        <p class="results-subtitle">
+          GPUs with at least <span x-text="minImprovement" class="accent-text"></span>% improvement
+        </p>
+
+        <div class="results-grid">
+          <template x-for="(result, index) in results.slice(0, 10)" :key="result.slug">
+            <div class="result-card" x-transition:enter="card-enter" x-transition:enter-start="card-enter-start"
+              x-transition:enter-end="card-enter-end" :style="'animation-delay: ' + (index * 0.1) + 's'">
+              <div class="result-card-header">
+                <h3 class="result-card-title" x-text="result.name"></h3>
+                <div class="improvement-badge">
+                  +<span x-text="Math.round(result.improvement)"></span>%
+                </div>
+              </div>
+              <div class="result-card-stats">
+                <div class="stat">
+                  <span class="stat-label">Current</span>
+                  <span class="stat-value" x-text="result.currentScore + ' pts'"></span>
+                </div>
+                <div class="stat-arrow">→</div>
+                <div class="stat">
+                  <span class="stat-label">New</span>
+                  <span class="stat-value" x-text="result.newScore + ' pts'"></span>
+                </div>
+              </div>
+            </div>
+          </template>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 15px;">
-          <div>
-            <strong>Current Performance:</strong><br>
-            <span x-text="result.currentScore + ' pts'"></span>
-          </div>
-          <div>
-            <strong>New Performance:</strong><br>
-            <span x-text="result.newScore + ' pts'"></span>
-          </div>
+        <div x-show="results.length > 10" class="show-more">
+          <p class="show-more-text">
+            Showing top 10 results. <span x-text="results.length - 10"></span> more available.
+          </p>
+          <a href="/gpu/" class="btn btn-secondary">View All GPUs</a>
         </div>
       </div>
-    </template>
 
-    <div x-show="results.length > 10" style="text-align: center; margin-top: 20px;">
-      <p>Showing top 10 results. <span x-text="results.length - 10"></span> more available.</p>
+      <!-- No Results -->
+      <div x-show="calculatorRun && results.length === 0" x-transition:enter="card-enter"
+        x-transition:enter-start="card-enter-start" x-transition:enter-end="card-enter-end" class="no-results">
+        <div class="no-results-icon">🔍</div>
+        <h3 class="no-results-title">No upgrades found</h3>
+        <p class="no-results-text">
+          No GPUs found with at least <span x-text="minImprovement" class="accent-text"></span>% improvement.
+        </p>
+        <button @click="minImprovement = 10" class="btn btn-secondary">
+          Try Lower Threshold
+        </button>
+      </div>
+
     </div>
   </div>
-
-  <!-- No Results -->
-  <div x-show="calculatorRun && results.length === 0"
-    style="text-align: center; padding: 40px; background: #f8f9fa; border-radius: 4px;">
-    <h3>No upgrades found</h3>
-    <p>No GPUs found with at least <span x-text="minImprovement"></span>% improvement.</p>
-  </div>
-
-</div>
-
-
-<script>
-  function upgradeCalculator() {
-    return {
-      searchQuery: '',
-      selectedGPU: null,
-      showDropdown: false,
-      filteredGPUs: [],
-      minImprovement: 30,
-      maxAllowedImprovement: 100, // wird nach Auswahl aktualisiert
-      results: [],
-      calculatorRun: false,
-
-      init() {
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-          if (!e.target.closest('[x-data="upgradeCalculator()"]')) {
-            this.showDropdown = false;
-          }
-        });
-      },
-
-      searchGPUs() {
-        if (!window.gpuData?.gpus || this.searchQuery.length < 2) {
-          this.filteredGPUs = [];
-          return;
-        }
-
-        const gpuList = Object.entries(window.gpuData.gpus).map(([slug, gpu]) => ({
-          slug,
-          ...gpu
-        }));
-
-        this.filteredGPUs = gpuList.filter(gpu =>
-          gpu.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-        );
-      },
-
-      selectGPU(gpu) {
-        this.selectedGPU = gpu;
-        this.searchQuery = gpu.name;
-        this.showDropdown = false;
-        this.results = [];
-        this.calculatorRun = false;
-
-        // Dynamisch maximal möglichen Improvement berechnen (rel. zu selectedGPU)
-        try {
-          const current = this.selectedGPU.score;
-          const allScores = Object.values(window.gpuData.gpus).map(g => g.score || 0);
-          const maxImp = Math.max(...allScores.map(s => ((s / current) - 1) * 100));
-          // Setze mindestens 100 als sichtbares Minimum
-          this.maxAllowedImprovement = Math.max(Math.ceil(maxImp), 100);
-          // Falls der Slider aktuell größer als max ist → anpassen
-          if (this.minImprovement > this.maxAllowedImprovement) {
-            this.minImprovement = this.maxAllowedImprovement;
-          }
-        } catch (e) {
-          console.warn('Could not compute maxAllowedImprovement', e);
-          this.maxAllowedImprovement = 100;
-        }
-      },
-
-      clearSelection() {
-        this.selectedGPU = null;
-        this.searchQuery = '';
-        this.filteredGPUs = [];
-        this.results = [];
-        this.calculatorRun = false;
-        this.maxAllowedImprovement = 100;
-      },
-
-      calculateUpgrades() {
-        if (!this.selectedGPU || !window.gpuData?.gpus) {
-          console.error('No GPU selected or no data available');
-          return;
-        }
-
-        const currentScore = this.selectedGPU.score;
-        if (!currentScore || currentScore <= 0) {
-          console.error('Invalid current GPU score');
-          return;
-        }
-
-        this.results = Object.entries(window.gpuData.gpus)
-          .map(([slug, gpu]) => {
-            const newScore = gpu.score;
-            if (!newScore || newScore <= 0) return null;
-
-            // korrekte Verhältnis-Berechnung (vereinfacht: new/current)
-            const improvement = ((newScore / currentScore) - 1) * 100;
-
-            return {
-              slug,
-              name: gpu.name,
-              gpu,
-              currentScore: currentScore,
-              newScore: newScore,
-              improvement: improvement
-            };
-          })
-          .filter(result => result && result.improvement >= this.minImprovement)
-          // aufsteigend sortieren (kleinste Verbesserung zuerst)
-          .sort((a, b) => a.improvement - b.improvement);
-
-        this.calculatorRun = true;
-      }
-    };
-  }
-</script>
+</section>
 {% endblock %}
