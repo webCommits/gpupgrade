@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title or "GPU Upgrade Calculator" }}</title>
-    <meta name="description"
-        content="Compare GPU performance and find the perfect graphics card upgrade for your gaming setup.">
 
+    <meta name="description"
+        content="GPUpgrade: Compare graphics cards and calculate GPU upgrade performance. Find the best GPU upgrade for gaming with our free online calculator.">
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +17,33 @@
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     </noscript>
-
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ global.url }}/assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ global.url }}/assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ global.url }}/assets/img/favicon-16x16.png">
+    <link rel="manifest" href="{{ global.url }}/assets/img/site.webmanifest">
     <link rel="stylesheet" href="{{ global.url }}/assets/css/base.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "GPUpgrade | Home",
+    "item": "https://lstoneyy.github.io/gpuupgrade/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "GPUpgrade | GPU List",
+    "item": "https://lstoneyy.github.io/gpuupgrade/gpu"  
+  },{
+    "@type": "ListItem", 
+    "position": 3, 
+    "name": "GPUpgrade | Compare GPUs",
+    "item": "https://lstoneyy.github.io/gpuupgrade/gpu/compare"  
+  }]
+}
+</script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 

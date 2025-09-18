@@ -1768,6 +1768,20 @@ position: relative;
   text-align: center;
 }
 
+/* ===== PRIVACY POLICY/LEGAL NOTICE ===== */
+.privacy-policy {
+  padding: 2em;
+}
+
+.privacy-policy h2,
+.privacy-policy h3 {
+  padding-top: 1em;
+}
+
+.privacy-policy h3 {
+  text-align: justify;
+}
+
 /* ===== FOOTER ===== */
 .footer {
   background: var(--ctp-mantle);
