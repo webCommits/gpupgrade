@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPUpgrade | Home</title>
+
+    <meta name="description"
+        content="GPUpgrade: Compare graphics cards and calculate GPU upgrade performance. Find the best GPU upgrade for gaming with our free online calculator.">
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://webcommits.github.io/gpupgrade/assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://webcommits.github.io/gpupgrade/assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://webcommits.github.io/gpupgrade/assets/img/favicon-16x16.png">
+    <link rel="manifest" href="https://webcommits.github.io/gpupgrade/assets/img/site.webmanifest">
+    <link rel="stylesheet" href="https://webcommits.github.io/gpupgrade/assets/css/base.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "GPUpgrade | Home",
+    "item": "https://lstoneyy.github.io/gpuupgrade/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "GPUpgrade | GPU List",
+    "item": "https://lstoneyy.github.io/gpuupgrade/gpu"  
+  },{
+    "@type": "ListItem", 
+    "position": 3, 
+    "name": "GPUpgrade | Compare GPUs",
+    "item": "https://lstoneyy.github.io/gpuupgrade/gpu/compare"  
+  }]
+}
+</script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <a href="https://webcommits.github.io/gpupgrade/" class="nav-logo" aria-label="Home">
+                    <span class="nav-logo-icon">⚡</span>
+                    <span class="nav-logo-text">GPUpgrade</span>
+                </a>
+                <div class="nav-links">
+                    <a href="https://webcommits.github.io/gpupgrade/" class="nav-link">Calculator</a>
+                    <a href="https://webcommits.github.io/gpupgrade/gpu/" class="nav-link">GPU List</a>
+                    <a href="https://webcommits.github.io/gpupgrade/gpu/compare/" class="nav-link">Compare</a>
+                </div>
+                <button class="nav-mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="nav-mobile-icon"></span>
+                </button>
+            </div>
+            <div class="nav-mobile-menu">
+                <a href="https://webcommits.github.io/gpupgrade/" class="nav-mobile-link">Calculator</a>
+                <a href="https://webcommits.github.io/gpupgrade/gpu/" class="nav-mobile-link">GPU List</a>
+                <a href="https://webcommits.github.io/gpupgrade/gpu/compare/" class="nav-mobile-link">Compare</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main" role="main">
+        
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Find Your Perfect
+        <span class="hero-title-accent">GPU Upgrade</span>
+      </h1>
+      <p class="hero-subtitle">
+        Discover if your graphics card upgrade is worth it with our intelligent performance calculator.
+      </p>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-glow"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="calculator-section">
+  <div class="container">
+    <div x-data="upgradeCalculator" x-init="init()" class="calculator">
+
+      <!-- Current GPU Selection -->
+      <div class="input-group">
+        <h2 class="section-title">Your Current GPU</h2>
+        <div class="search-container" x-data="{ focused: false }">
+          <input type="text" x-model="searchQuery" @input="searchGPUs()" @focus="showDropdown = true; focused = true"
+            @blur="focused = false" placeholder="Search for your GPU (e.g., RTX 3070)" class="search-input"
+            :class="{ 'search-input-focused': focused }" autocomplete="off">
+
+          <!-- Search icon -->
+          <div class="search-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </div>
+
+          <!-- Dropdown -->
+          <div x-show="showDropdown && filteredGPUs.length > 0" x-transition:enter="dropdown-enter"
+            x-transition:enter-start="dropdown-enter-start" x-transition:enter-end="dropdown-enter-end"
+            x-transition:leave="dropdown-leave" x-transition:leave-start="dropdown-leave-start"
+            x-transition:leave-end="dropdown-leave-end" class="dropdown">
+            <template x-for="gpu in filteredGPUs.slice(0, 8)" :key="gpu.slug">
+              <div @click="selectGPU(gpu)" class="dropdown-item">
+                <span x-text="gpu.name" class="dropdown-item-name"></span>
+                <span x-text="gpu.score + ' pts'" class="dropdown-item-score"></span>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <!-- Selected GPU Display -->
+        <div x-show="selectedGPU" x-transition:enter="card-enter" x-transition:enter-start="card-enter-start"
+          x-transition:enter-end="card-enter-end" class="selected-gpu">
+          <div class="selected-gpu-content">
+            <div class="selected-gpu-info">
+              <h3 class="selected-gpu-name" x-text="selectedGPU?.name"></h3>
+              <p class="selected-gpu-score">
+                Performance: <span x-text="selectedGPU ? selectedGPU.score + ' pts' : ''"></span>
+              </p>
+            </div>
+            <button @click="clearSelection()" class="btn btn-secondary btn-sm">
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Performance Slider -->
+      <div class="input-group">
+        <h2 class="section-title">Minimum Performance Improvement</h2>
+        <div class="slider-container">
+          <input type="range" x-model="minImprovement" min="10" max="100" step="5" class="slider"
+            style="--value: %">
+          <div class="slider-labels">
+            <span class="slider-label">10%</span>
+            <span class="slider-value" x-text="minImprovement + '%'"></span>
+            <span class="slider-label">100%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calculate Button -->
+      <div class="input-group">
+        <button @click="calculateUpgrades()" :disabled="!selectedGPU" class="btn btn-primary btn-large"
+          :class="{ 'btn-disabled': !selectedGPU }">
+          <span x-show="!isCalculating">Calculate Upgrades</span>
+          <span x-show="isCalculating" class="loading-spinner">
+            <svg class="spinner" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-dasharray="31.416" stroke-dashoffset="31.416">
+                <animate attributeName="stroke-dasharray" dur="2s" values="0 31.416;15.708 15.708;0 31.416"
+                  repeatCount="indefinite" />
+                <animate attributeName="stroke-dashoffset" dur="2s" values="0;-15.708;-31.416"
+                  repeatCount="indefinite" />
+            </svg>
+            Calculating...
+          </span>
+        </button>
+        <p x-show="!selectedGPU" class="help-text">
+          Please select a GPU first
+        </p>
+      </div>
+
+      <!-- Results -->
+      <div x-show="results.length > 0" x-transition:enter="results-enter" x-transition:enter-start="results-enter-start"
+        x-transition:enter-end="results-enter-end" class="results-section">
+        <h2 class="section-title">
+          Upgrade Recommendations
+          <span class="results-count" x-text="'(' + results.length + ' found)'"></span>
+        </h2>
+        <p class="results-subtitle">
+          GPUs with at least <span x-text="minImprovement" class="accent-text"></span>% improvement
+        </p>
+
+        <div class="results-grid">
+          <template x-for="(result, index) in results.slice(0, 10)" :key="result.slug">
+            <div class="result-card" x-transition:enter="card-enter" x-transition:enter-start="card-enter-start"
+              x-transition:enter-end="card-enter-end" :style="'animation-delay: ' + (index * 0.1) + 's'">
+              <div class="result-card-header">
+                <h3 class="result-card-title" x-text="result.name"></h3>
+                <div class="improvement-badge">
+                  +<span x-text="Math.round(result.improvement)"></span>%
+                </div>
+              </div>
+              <div class="result-card-stats">
+                <div class="stat">
+                  <span class="stat-label">Current</span>
+                  <span class="stat-value" x-text="result.currentScore + ' pts'"></span>
+                </div>
+                <div class="stat-arrow">→</div>
+                <div class="stat">
+                  <span class="stat-label">New</span>
+                  <span class="stat-value" x-text="result.newScore + ' pts'"></span>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <div x-show="results.length > 10" class="show-more">
+          <p class="show-more-text">
+            Showing top 10 results. <span x-text="results.length - 10"></span> more available.
+          </p>
+          <a href="/gpu/" class="btn btn-secondary">View All GPUs</a>
+        </div>
+      </div>
+
+      <!-- No Results -->
+      <div x-show="calculatorRun && results.length === 0" x-transition:enter="card-enter"
+        x-transition:enter-start="card-enter-start" x-transition:enter-end="card-enter-end" class="no-results">
+        <div class="no-results-icon">🔍</div>
+        <h3 class="no-results-title">No upgrades found</h3>
+        <p class="no-results-text">
+          No GPUs found with at least <span x-text="minImprovement" class="accent-text"></span>% improvement.
+        </p>
+        <button @click="minImprovement = 10" class="btn btn-secondary">
+          Try Lower Threshold
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 class="footer-title">Support the Project</h3>
+                <p class="footer-text">Enjoying GPUpgrade? Consider buying me a coffee!</p>
+                <div class="footer-buttons">
+                    <a href="https://github.com/webcommits/gpupgrade" class="footer-button footer-button-secondary"
+                        target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://www.paypal.me/dcmbrbeats" target="_blank" rel="noopener noreferrer"
+                        class="footer-button footer-button-primary"
+                        aria-label="Buy me a coffee, link to PayPaBuy me a coffee, link to PayPall">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.26-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.25.25 0 0 0-.25.25v.002l-1.28 8.127a.25.25 0 0 0 .247.289h4.605c.43 0 .798-.314.867-.74l.034-.217.643-4.078.041-.26c.069-.426.437-.74.867-.74h.545c3.536 0 6.302-1.435 7.105-5.587.334-1.727.162-3.17-.676-4.206z" />
+                        </svg>
+                        Buy me a coffee
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-links">
+                    <a href="https://webcommits.github.io/gpupgrade/legalnotice/" class="footer-link">Legal Notice</a>
+                    <a href="https://webcommits.github.io/gpupgrade/privacypolicy/" class="footer-link">Privacy Policy</a>
+                </div>
+                <p class="footer-copyright">
+                    © 2024 webCommits web Designs. GPU data from TechPowerUp.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://webcommits.github.io/gpupgrade/assets/js/base.js"></script>
+</body>
+
+</html>

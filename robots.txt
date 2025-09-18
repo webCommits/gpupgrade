@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lstoneyy.github.io/gpuupgrade/sitemap.xml

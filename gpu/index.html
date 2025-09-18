@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPUpgrade | GPU List</title>
+
+    <meta name="description"
+        content="GPUpgrade: Compare graphics cards and calculate GPU upgrade performance. Find the best GPU upgrade for gaming with our free online calculator.">
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://webcommits.github.io/gpupgrade/assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://webcommits.github.io/gpupgrade/assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://webcommits.github.io/gpupgrade/assets/img/favicon-16x16.png">
+    <link rel="manifest" href="https://webcommits.github.io/gpupgrade/assets/img/site.webmanifest">
+    <link rel="stylesheet" href="https://webcommits.github.io/gpupgrade/assets/css/base.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "GPUpgrade | Home",
+    "item": "https://lstoneyy.github.io/gpuupgrade/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "GPUpgrade | GPU List",
+    "item": "https://lstoneyy.github.io/gpuupgrade/gpu"  
+  },{
+    "@type": "ListItem", 
+    "position": 3, 
+    "name": "GPUpgrade | Compare GPUs",
+    "item": "https://lstoneyy.github.io/gpuupgrade/gpu/compare"  
+  }]
+}
+</script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <a href="https://webcommits.github.io/gpupgrade/" class="nav-logo" aria-label="Home">
+                    <span class="nav-logo-icon">⚡</span>
+                    <span class="nav-logo-text">GPUpgrade</span>
+                </a>
+                <div class="nav-links">
+                    <a href="https://webcommits.github.io/gpupgrade/" class="nav-link">Calculator</a>
+                    <a href="https://webcommits.github.io/gpupgrade/gpu/" class="nav-link">GPU List</a>
+                    <a href="https://webcommits.github.io/gpupgrade/gpu/compare/" class="nav-link">Compare</a>
+                </div>
+                <button class="nav-mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="nav-mobile-icon"></span>
+                </button>
+            </div>
+            <div class="nav-mobile-menu">
+                <a href="https://webcommits.github.io/gpupgrade/" class="nav-mobile-link">Calculator</a>
+                <a href="https://webcommits.github.io/gpupgrade/gpu/" class="nav-mobile-link">GPU List</a>
+                <a href="https://webcommits.github.io/gpupgrade/gpu/compare/" class="nav-mobile-link">Compare</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main" role="main">
+        
+<section class="page-header">
+  <div class="container">
+    <h1 class="page-title">GPU Performance List</h1>
+    <p class="page-subtitle">Complete database of graphics cards with performance scores</p>
+  </div>
+</section>
+
+<section class="gpu-list-section">
+  <div class="container">
+    <div x-data="gpuList" x-init="init()" class="gpu-list">
+
+      <!-- Search and Filters -->
+      <div class="filters-panel">
+        <div class="filters-grid">
+
+          <!-- Search -->
+          <div class="filter-group">
+            <label class="filter-label">Search GPUs</label>
+            <div class="search-container">
+              <input type="text" x-model="searchQuery" @input="filterGPUs()"
+                placeholder="Search by name (RTX, RX, 4090...)" class="search-input">
+              <div class="search-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand Filter -->
+          <div class="filter-group">
+            <label class="filter-label">Brand</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" x-model="brandFilter" value="all" @change="filterGPUs()" name="brand">
+                <span class="radio-button"></span>
+                All
+              </label>
+              <label class="radio-option">
+                <input type="radio" x-model="brandFilter" value="nvidia" @change="filterGPUs()" name="brand">
+                <span class="radio-button"></span>
+                NVIDIA
+              </label>
+              <label class="radio-option">
+                <input type="radio" x-model="brandFilter" value="amd" @change="filterGPUs()" name="brand">
+                <span class="radio-button"></span>
+                AMD
+              </label>
+            </div>
+          </div>
+
+          <!-- Sort Options -->
+          <div class="filter-group">
+            <label class="filter-label">Sort by</label>
+            <div class="select-group">
+              <select x-model="sortBy" @change="sortGPUs()" class="select-input">
+                <option value="name">Name (A-Z)</option>
+                <option value="score">Performance Score</option>
+              </select>
+              <label class="checkbox-option">
+                <input type="checkbox" x-model="sortDescending" @change="sortGPUs()">
+                <span class="checkbox"></span>
+                Descending
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Results Count -->
+        <div class="results-info">
+          <span class="results-count">
+            Showing <span x-text="Math.min(filteredGPUs.length, visibleCount)" class="accent-text"></span>
+            of <span x-text="filteredGPUs.length" class="accent-text"></span> GPUs
+          </span>
+          <div class="view-toggle" x-data="{ viewMode: 'grid' }">
+            <button @click="viewMode = 'grid'" :class="{ active: viewMode === 'grid' }" class="view-button"
+              aria-label="Grid view">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </button>
+            <button @click="viewMode = 'list'" :class="{ active: viewMode === 'list' }" class="view-button"
+              aria-label="List view">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GPU Grid -->
+      <div class="gpu-grid" :class="{ 'gpu-grid-list': viewMode === 'list' }">
+        <template x-for="(gpu, index) in filteredGPUs.slice(0, visibleCount)" :key="gpu.slug">
+          <div class="gpu-card" x-transition:enter="card-enter" x-transition:enter-start="card-enter-start"
+            x-transition:enter-end="card-enter-end" :style="'animation-delay: ' + (index % 20 * 0.05) + 's'">
+
+            <!-- GPU Header -->
+            <div class="gpu-card-header">
+              <h3 class="gpu-card-title" x-text="gpu.name"></h3>
+              <div class="gpu-card-brand" x-text="getBrand(gpu.name)"></div>
+            </div>
+
+            <!-- Performance Score -->
+            <div class="gpu-card-score">
+              <span class="score-label">Performance Score</span>
+              <span class="score-value" x-text="gpu.score"></span>
+            </div>
+
+            <!-- Performance Bar -->
+            <div class="performance-bar">
+              <div class="performance-bar-fill"
+                :style="'width: ' + Math.min((gpu.score / maxPerformance * 100), 100) + '%'">
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="gpu-card-actions">
+              <button @click="selectForComparison(gpu)" :class="{ 'btn-selected': isSelected(gpu) }"
+                class="btn btn-secondary btn-sm" :aria-label="'Add ' + gpu.name + ' to comparison'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                Compare
+              </button>
+              <button @click="useInCalculator(gpu)" class="btn btn-primary btn-sm"
+                :aria-label="'Use ' + gpu.name + ' in calculator'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Calculate
+              </button>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- Show more button -->
+      <div x-show="filteredGPUs.length > visibleCount" class="show-more-section">
+        <button @click="showMore()" class="btn btn-secondary btn-large">
+          Show More GPUs
+        </button>
+      </div>
+
+      <!-- No Results -->
+      <div x-show="filteredGPUs.length === 0" class="no-results">
+        <div class="no-results-icon">🎮</div>
+        <h3 class="no-results-title">No GPUs found</h3>
+        <p class="no-results-text">Try adjusting your search or filter criteria.</p>
+        <button @click="clearFilters()" class="btn btn-secondary">
+          Clear Filters
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Comparison Bar -->
+<div x-show="selectedForComparison.length > 0" x-transition:enter="comparison-bar-enter"
+  x-transition:enter-start="comparison-bar-enter-start" x-transition:enter-end="comparison-bar-enter-end"
+  x-transition:leave="comparison-bar-leave" x-transition:leave-start="comparison-bar-leave-start"
+  x-transition:leave-end="comparison-bar-leave-end" class="comparison-bar">
+  <div class="comparison-bar-content">
+    <div class="comparison-info">
+      <span class="comparison-label">Selected for comparison:</span>
+      <span class="comparison-count"
+        x-text="selectedForComparison.length + ' GPU' + (selectedForComparison.length > 1 ? 's' : '')"></span>
+      <div class="comparison-chips">
+        <template x-for="gpu in selectedForComparison.slice(0, 3)" :key="gpu.slug">
+          <span class="comparison-chip" x-text="gpu.name"></span>
+        </template>
+        <span x-show="selectedForComparison.length > 3" class="comparison-chip">
+          +<span x-text="selectedForComparison.length - 3"></span> more
+        </span>
+      </div>
+    </div>
+    <div class="comparison-actions">
+      <button @click="goToComparison()" :disabled="selectedForComparison.length < 2" class="btn btn-primary"
+        :class="{ 'btn-disabled': selectedForComparison.length < 2 }">
+        Compare Now
+      </button>
+      <button @click="clearComparison()" class="btn btn-secondary">
+        Clear All
+      </button>
+    </div>
+  </div>
+</div>
+
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 class="footer-title">Support the Project</h3>
+                <p class="footer-text">Enjoying GPUpgrade? Consider buying me a coffee!</p>
+                <div class="footer-buttons">
+                    <a href="https://github.com/webcommits/gpupgrade" class="footer-button footer-button-secondary"
+                        target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://www.paypal.me/dcmbrbeats" target="_blank" rel="noopener noreferrer"
+                        class="footer-button footer-button-primary"
+                        aria-label="Buy me a coffee, link to PayPaBuy me a coffee, link to PayPall">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.26-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.25.25 0 0 0-.25.25v.002l-1.28 8.127a.25.25 0 0 0 .247.289h4.605c.43 0 .798-.314.867-.74l.034-.217.643-4.078.041-.26c.069-.426.437-.74.867-.74h.545c3.536 0 6.302-1.435 7.105-5.587.334-1.727.162-3.17-.676-4.206z" />
+                        </svg>
+                        Buy me a coffee
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-links">
+                    <a href="https://webcommits.github.io/gpupgrade/legalnotice/" class="footer-link">Legal Notice</a>
+                    <a href="https://webcommits.github.io/gpupgrade/privacypolicy/" class="footer-link">Privacy Policy</a>
+                </div>
+                <p class="footer-copyright">
+                    © 2024 webCommits web Designs. GPU data from TechPowerUp.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://webcommits.github.io/gpupgrade/assets/js/base.js"></script>
+</body>
+
+</html>
