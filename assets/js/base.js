@@ -1,5 +1,53 @@
-// ===== GLOBAL VARIABLES =====
-console.log('GPU Data loaded:', window.gpuData);
+// ===== LOAD GPU DATA =====
+window.gpuData = null;
+
+async function loadGPUData() {
+  try {
+    const response = await fetch('/assets/data/gpus.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    window.gpuData = await response.json();
+    console.log('GPU Data loaded:', window.gpuData);
+  } catch (err) {
+    console.error('Failed to load GPU data:', err);
+    window.gpuData = { gpus: {} }; // fallback
+  }
+  return window.gpuData;
+}
+
+// Page-spezifische Initialisierung erst nach GPU-Data
+document.addEventListener('DOMContentLoaded', async function() {
+  await loadGPUData(); // wartet, bis die JSON geladen ist
+
+  const path = window.location.pathname;
+
+  if (path.includes('/gpu/') && !path.includes('/compare/')) {
+    gpuList().init();        // GPU List
+  } else if (path.includes('/compare/')) {
+    gpuComparer().init();    // Compare Page
+  } else {
+    upgradeCalculator().init(); // Startseite
+  }
+});
+
+
+document.addEventListener('DOMContentLoaded', async function() {
+  const path = window.location.pathname;
+
+  if (path.includes('/gpu/') && !path.includes('/compare/')) {
+    console.log('GPU List page initialization...');
+    await loadGPUData();  // warten bis die Daten da sind
+    const gpuListComponent = gpuList();
+    gpuListComponent.init();
+    window.gpuListComponent = gpuListComponent; // optional, für Debug
+  } else if (path.includes('/compare/')) {
+    await loadGPUData();
+    console.log('GPU Compare page initialized');
+  } else {
+    await loadGPUData();
+    console.log('GPU Calculator page initialized');
+  }
+});
+
 
 // ===== MOBILE NAVIGATION =====
 document.addEventListener('DOMContentLoaded', function() {
