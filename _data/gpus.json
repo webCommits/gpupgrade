@@ -1,0 +1,677 @@
+{
+  "metadata": {
+    "reference_gpu": "GeForce RTX 3080",
+    "reference_score": 1000,
+    "total_gpus": 167
+  },
+  "gpus": {
+    "5090": {
+      "name": "GeForce RTX 5090",
+      "score": 2560
+    },
+    "4090": {
+      "name": "GeForce RTX 4090",
+      "score": 1950
+    },
+    "5080": {
+      "name": "GeForce RTX 5080",
+      "score": 1690
+    },
+    "4080s": {
+      "name": "GeForce RTX 4080 Super",
+      "score": 1510
+    },
+    "4080": {
+      "name": "GeForce RTX 4080",
+      "score": 1490
+    },
+    "7900xtx": {
+      "name": "Radeon RX 7900 XTX",
+      "score": 1490
+    },
+    "5070ti": {
+      "name": "GeForce RTX 5070 Ti",
+      "score": 1470
+    },
+    "9070xt": {
+      "name": "Radeon RX 9070 XT",
+      "score": 1410
+    },
+    "7900xt": {
+      "name": "Radeon RX 7900 XT",
+      "score": 1280
+    },
+    "3090ti": {
+      "name": "GeForce RTX 3090 Ti",
+      "score": 1260
+    },
+    "4070tis": {
+      "name": "GeForce RTX 4070 Ti Super",
+      "score": 1260
+    },
+    "9070": {
+      "name": "Radeon RX 9070",
+      "score": 1260
+    },
+    "4070ti": {
+      "name": "GeForce RTX 4070 Ti",
+      "score": 1150
+    },
+    "5070": {
+      "name": "GeForce RTX 5070",
+      "score": 1140
+    },
+    "3090": {
+      "name": "GeForce RTX 3090",
+      "score": 1130
+    },
+    "3080ti": {
+      "name": "GeForce RTX 3080 Ti",
+      "score": 1110
+    },
+    "4070s": {
+      "name": "GeForce RTX 4070 Super",
+      "score": 1070
+    },
+    "7900gre": {
+      "name": "Radeon RX 7900 Green Edition",
+      "score": 1060
+    },
+    "6950xt": {
+      "name": "Radeon RX 6950 XT",
+      "score": 1040
+    },
+    "4070": {
+      "name": "GeForce RTX 4070",
+      "score": 1030
+    },
+    "6900xt": {
+      "name": "Radeon RX 6900 XT",
+      "score": 1020
+    },
+    "3080": {
+      "name": "GeForce RTX 3080",
+      "score": 1000
+    },
+    "7800xt": {
+      "name": "Radeon RX 7800 XT",
+      "score": 1000
+    },
+    "5060ti16": {
+      "name": "GeForce RTX 5060 Ti 16 GB",
+      "score": 890
+    },
+    "5060ti8": {
+      "name": "GeForce RTX 5060 Ti 8 GB",
+      "score": 890
+    },
+    "7700xt": {
+      "name": "Radeon RX 7700 XT",
+      "score": 870
+    },
+    "9060xt16": {
+      "name": "Radeon RX 9060 XT 16 GB",
+      "score": 850
+    },
+    "3070ti": {
+      "name": "GeForce RTX 3070 Ti",
+      "score": 850
+    },
+    "6800": {
+      "name": "Radeon RX 6800",
+      "score": 820
+    },
+    "9060xt8": {
+      "name": "Radeon RX 9060 XT 8 GB",
+      "score": 800
+    },
+    "3070": {
+      "name": "GeForce RTX 3070",
+      "score": 790
+    },
+    "2080ti": {
+      "name": "GeForce RTX 2080 Ti",
+      "score": 780
+    },
+    "4060ti8": {
+      "name": "GeForce RTX 4060 Ti 8 GB",
+      "score": 780
+    },
+    "5060": {
+      "name": "GeForce RTX 5060",
+      "score": 770
+    },
+    "6750xt": {
+      "name": "Radeon RX 6750 XT",
+      "score": 750
+    },
+    "3060ti": {
+      "name": "GeForce RTX 3060 Ti",
+      "score": 690
+    },
+    "6700xt": {
+      "name": "Radeon RX 6700 XT",
+      "score": 680
+    },
+    "2080super": {
+      "name": "GeForce RTX 2080 SUPER",
+      "score": 630
+    },
+    "7600xt": {
+      "name": "Radeon RX 7600 XT",
+      "score": 630
+    },
+    "4060": {
+      "name": "GeForce RTX 4060",
+      "score": 620
+    },
+    "b580": {
+      "name": "Arc B580",
+      "score": 620
+    },
+    "5050": {
+      "name": "GeForce RTX 5050",
+      "score": 610
+    },
+    "2080": {
+      "name": "GeForce RTX 2080",
+      "score": 600
+    },
+    "6650xt": {
+      "name": "Radeon RX 6650 XT",
+      "score": 590
+    },
+    "7600": {
+      "name": "Radeon RX 7600",
+      "score": 590
+    },
+    "2070super": {
+      "name": "GeForce RTX 2070 SUPER",
+      "score": 560
+    },
+    "1080ti": {
+      "name": "GeForce GTX 1080 Ti",
+      "score": 550
+    },
+    "a770": {
+      "name": "Arc A770",
+      "score": 550
+    },
+    "3060_12gb": {
+      "name": "GeForce RTX 3060 12 GB",
+      "score": 530
+    },
+    "6600xt": {
+      "name": "Radeon RX 6600 XT",
+      "score": 530
+    },
+    "vii": {
+      "name": "Radeon VII",
+      "score": 520
+    },
+    "a750": {
+      "name": "Arc A750",
+      "score": 510
+    },
+    "5700xt": {
+      "name": "Radeon RX 5700 XT",
+      "score": 500
+    },
+    "2070": {
+      "name": "GeForce RTX 2070",
+      "score": 500
+    },
+    "6600": {
+      "name": "Radeon RX 6600",
+      "score": 470
+    },
+    "a580": {
+      "name": "Arc A580",
+      "score": 460
+    },
+    "2060super": {
+      "name": "GeForce RTX 2060 SUPER",
+      "score": 460
+    },
+    "vega64": {
+      "name": "Radeon RX Vega 64",
+      "score": 440
+    },
+    "2060": {
+      "name": "GeForce RTX 2060",
+      "score": 430
+    },
+    "5700": {
+      "name": "Radeon RX 5700",
+      "score": 420
+    },
+    "1080": {
+      "name": "GeForce GTX 1080",
+      "score": 420
+    },
+    "1070ti": {
+      "name": "GeForce GTX 1070 Ti",
+      "score": 410
+    },
+    "5600xt": {
+      "name": "Radeon RX 5600 XT",
+      "score": 400
+    },
+    "vega56": {
+      "name": "Radeon RX Vega 56",
+      "score": 380
+    },
+    "1070": {
+      "name": "GeForce GTX 1070",
+      "score": 370
+    },
+    "1660super": {
+      "name": "GeForce GTX 1660 SUPER",
+      "score": 350
+    },
+    "1660ti": {
+      "name": "GeForce GTX 1660 Ti",
+      "score": 350
+    },
+    "980ti": {
+      "name": "GeForce GTX 980 Ti",
+      "score": 330
+    },
+    "3050_8gb": {
+      "name": "GeForce RTX 3050 8 GB",
+      "score": 330
+    },
+    "r9furyx": {
+      "name": "Radeon R9 FURY X",
+      "score": 330
+    },
+    "1660": {
+      "name": "GeForce GTX 1660",
+      "score": 320
+    },
+    "590": {
+      "name": "GeForce GTX 590",
+      "score": 190
+    },
+    "r9fury": {
+      "name": "Radeon R9 FURY",
+      "score": 300
+    },
+    "980": {
+      "name": "GeForce GTX 980",
+      "score": 290
+    },
+    "1650super": {
+      "name": "GeForce GTX 1650 SUPER",
+      "score": 290
+    },
+    "6500xt": {
+      "name": "Radeon RX 6500 XT",
+      "score": 290
+    },
+    "5500xt": {
+      "name": "Radeon RX 5500 XT",
+      "score": 280
+    },
+    "580": {
+      "name": "GeForce GTX 580",
+      "score": 140
+    },
+    "1060_6gb": {
+      "name": "GeForce GTX 1060 6 GB",
+      "score": 270
+    },
+    "r9_390x": {
+      "name": "Radeon R9 390X",
+      "score": 270
+    },
+    "690": {
+      "name": "GeForce GTX 690",
+      "score": 270
+    },
+    "480": {
+      "name": "GeForce GTX 480",
+      "score": 110
+    },
+    "hd7990": {
+      "name": "Radeon HD 7990",
+      "score": 260
+    },
+    "780ti": {
+      "name": "GeForce GTX 780 Ti",
+      "score": 260
+    },
+    "970": {
+      "name": "GeForce GTX 970",
+      "score": 250
+    },
+    "r9_290x": {
+      "name": "Radeon R9 290X",
+      "score": 250
+    },
+    "r9_390": {
+      "name": "Radeon R9 390",
+      "score": 250
+    },
+    "570": {
+      "name": "GeForce GTX 570",
+      "score": 120
+    },
+    "r9_290": {
+      "name": "Radeon R9 290",
+      "score": 230
+    },
+    "470": {
+      "name": "GeForce GTX 470",
+      "score": 90
+    },
+    "1650": {
+      "name": "GeForce GTX 1650",
+      "score": 220
+    },
+    "6400": {
+      "name": "Radeon RX 6400",
+      "score": 210
+    },
+    "a380": {
+      "name": "Arc A380",
+      "score": 210
+    },
+    "780": {
+      "name": "GeForce GTX 780",
+      "score": 210
+    },
+    "hd7970_ghz": {
+      "name": "Radeon HD 7970 GHz Edition",
+      "score": 190
+    },
+    "r9_280x": {
+      "name": "Radeon R9 280X",
+      "score": 180
+    },
+    "hd6990": {
+      "name": "Radeon HD 6990",
+      "score": 180
+    },
+    "1050ti": {
+      "name": "GeForce GTX 1050 Ti",
+      "score": 170
+    },
+    "680": {
+      "name": "GeForce GTX 680",
+      "score": 170
+    },
+    "r9_380": {
+      "name": "Radeon R9 380",
+      "score": 170
+    },
+    "hd7970": {
+      "name": "Radeon HD 7970",
+      "score": 170
+    },
+    "770": {
+      "name": "GeForce GTX 770",
+      "score": 170
+    },
+    "r9_285": {
+      "name": "Radeon R9 285",
+      "score": 160
+    },
+    "960": {
+      "name": "GeForce GTX 960",
+      "score": 160
+    },
+    "670": {
+      "name": "GeForce GTX 670",
+      "score": 160
+    },
+    "hd5970": {
+      "name": "Radeon HD 5970",
+      "score": 140
+    },
+    "1630": {
+      "name": "GeForce GTX 1630",
+      "score": 140
+    },
+    "hd7950": {
+      "name": "Radeon HD 7950",
+      "score": 140
+    },
+    "1050": {
+      "name": "GeForce GTX 1050",
+      "score": 140
+    },
+    "760": {
+      "name": "GeForce GTX 760",
+      "score": 140
+    },
+    "660ti": {
+      "name": "GeForce GTX 660 Ti",
+      "score": 140
+    },
+    "r9_270x": {
+      "name": "Radeon R9 270X",
+      "score": 130
+    },
+    "hd7870_ghz": {
+      "name": "Radeon HD 7870 GHz Edition",
+      "score": 130
+    },
+    "950": {
+      "name": "GeForce GTX 950",
+      "score": 130
+    },
+    "560": {
+      "name": "Radeon RX 560",
+      "score": 120
+    },
+    "660": {
+      "name": "GeForce GTX 660",
+      "score": 120
+    },
+    "460": {
+      "name": "GeForce GTX 460",
+      "score": 70
+    },
+    "r7_370": {
+      "name": "Radeon R7 370",
+      "score": 120
+    },
+    "hd6970": {
+      "name": "Radeon HD 6970",
+      "score": 120
+    },
+    "hd7850": {
+      "name": "Radeon HD 7850",
+      "score": 110
+    },
+    "295": {
+      "name": "GeForce GTX 295",
+      "score": 110
+    },
+    "hd6950": {
+      "name": "Radeon HD 6950",
+      "score": 100
+    },
+    "750ti": {
+      "name": "GeForce GTX 750 Ti",
+      "score": 100
+    },
+    "4870x2": {
+      "name": "Radeon HD 4870 X2",
+      "score": 100
+    },
+    "560ti": {
+      "name": "GeForce GTX 560 Ti",
+      "score": 100
+    },
+    "hd5870": {
+      "name": "Radeon HD 5870",
+      "score": 100
+    },
+    "hd6870": {
+      "name": "Radeon HD 6870",
+      "score": 90
+    },
+    "650ti": {
+      "name": "GeForce GTX 650 Ti",
+      "score": 80
+    },
+    "hd5850": {
+      "name": "Radeon HD 5850",
+      "score": 80
+    },
+    "285": {
+      "name": "GeForce GTX 285",
+      "score": 80
+    },
+    "hd6850": {
+      "name": "Radeon HD 6850",
+      "score": 80
+    },
+    "280": {
+      "name": "GeForce GTX 280",
+      "score": 70
+    },
+    "hd7770_ghz": {
+      "name": "Radeon HD 7770 GHz Edition",
+      "score": 70
+    },
+    "275": {
+      "name": "GeForce GTX 275",
+      "score": 70
+    },
+    "gt1030": {
+      "name": "GeForce GT 1030",
+      "score": 70
+    },
+    "hd4890": {
+      "name": "Radeon HD 4890",
+      "score": 70
+    },
+    "hd6790": {
+      "name": "Radeon HD 6790",
+      "score": 60
+    },
+    "hd5830": {
+      "name": "Radeon HD 5830",
+      "score": 60
+    },
+    "650": {
+      "name": "GeForce GTX 650",
+      "score": 60
+    },
+    "550ti": {
+      "name": "GeForce GTX 550 Ti",
+      "score": 60
+    },
+    "4870": {
+      "name": "Radeon HD 4870",
+      "score": 60
+    },
+    "260": {
+      "name": "GeForce GTX 260",
+      "score": 60
+    },
+    "hd5770": {
+      "name": "Radeon HD 5770",
+      "score": 60
+    },
+    "hd7750": {
+      "name": "Radeon HD 7750",
+      "score": 50
+    },
+    "hd5750": {
+      "name": "Radeon HD 5750",
+      "score": 50
+    },
+    "gts450": {
+      "name": "GeForce GTS 450",
+      "score": 50
+    },
+    "gts250": {
+      "name": "GeForce GTS 250",
+      "score": 50
+    },
+    "hd4850": {
+      "name": "Radeon HD 4850",
+      "score": 40
+    },
+    "hd4770": {
+      "name": "Radeon HD 4770",
+      "score": 40
+    },
+    "hd4830": {
+      "name": "Radeon HD 4830",
+      "score": 40
+    },
+    "hd6670": {
+      "name": "Radeon HD 6670",
+      "score": 40
+    },
+    "9800gt": {
+      "name": "GeForce 9800 GT",
+      "score": 40
+    },
+    "gt640": {
+      "name": "GeForce GT 640",
+      "score": 40
+    },
+    "hd5670": {
+      "name": "Radeon HD 5670",
+      "score": 30
+    },
+    "9600gt": {
+      "name": "GeForce 9600 GT",
+      "score": 30
+    },
+    "gt240": {
+      "name": "GeForce GT 240",
+      "score": 30
+    },
+    "gt440": {
+      "name": "GeForce GT 440",
+      "score": 30
+    },
+    "hd4670": {
+      "name": "Radeon HD 4670",
+      "score": 30
+    },
+    "hd5570": {
+      "name": "Radeon HD 5570",
+      "score": 20
+    },
+    "gt430": {
+      "name": "GeForce GT 430",
+      "score": 20
+    },
+    "gt220": {
+      "name": "GeForce GT 220",
+      "score": 20
+    },
+    "gt520": {
+      "name": "GeForce GT 520",
+      "score": 10
+    },
+    "hd6450": {
+      "name": "Radeon HD 6450",
+      "score": 10
+    },
+    "hd5450": {
+      "name": "Radeon HD 5450",
+      "score": 10
+    },
+    "hd4550": {
+      "name": "Radeon HD 4550",
+      "score": 10
+    },
+    "9400gt": {
+      "name": "GeForce 9400 GT",
+      "score": 10
+    },
+    "210": {
+      "name": "GeForce 210",
+      "score": 10
+    }
+  }
+}
