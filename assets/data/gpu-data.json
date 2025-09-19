@@ -1,10 +1,5 @@
-{
-  "resolutions": [
-    "1080p",
-    "1440p",
-    "4k",
-    "overall"
-  ],
+ {
+  "resolutions": ["1080p", "1440p", "4k", "overall"],
   "gpus": {
     "rtx-pro-6000-blackwell": {
       "name": "Nvidia RTX Pro 6000 (Blackwell)",
@@ -15,7 +10,7 @@
         "1080p": null,
         "1440p": null,
         "4k": null,
-        "overall": 100.0
+        "overall": 100.00
       }
     },
     "rtx-5090-d": {
@@ -24,9 +19,9 @@
       "generation": "Blackwell",
       "brand": "nvidia",
       "scores": {
-        "1080p": 100.0,
-        "1440p": null,
-        "4k": null,
+        "1080p": 100.00,
+        "1440p": 100.00,
+        "4k": 99.98,
         "overall": 95.24
       }
     },
@@ -37,8 +32,8 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 96.54,
-        "1440p": null,
-        "4k": null,
+        "1440p": 89.94,
+        "4k": 100.00,
         "overall": 92.19
       }
     },
@@ -49,9 +44,9 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 80.34,
-        "1440p": null,
-        "4k": null,
-        "overall": 70.6
+        "1440p": 71.35,
+        "4k": 73.96,
+        "overall": 72.26
       }
     },
     "rtx-4090-d": {
@@ -61,8 +56,8 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 76.12,
-        "1440p": null,
-        "4k": null,
+        "1440p": 70.63,
+        "4k": 67.45,
         "overall": 68.44
       }
     },
@@ -73,8 +68,8 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 79.99,
-        "1440p": null,
-        "4k": null,
+        "1440p": 63.19,
+        "4k": 64.32,
         "overall": 66.03
       }
     },
@@ -97,8 +92,8 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 72.05,
-        "1440p": null,
-        "4k": null,
+        "1440p": 53.71,
+        "4k": 53.64,
         "overall": 56.75
       }
     },
@@ -109,20 +104,20 @@
       "brand": "amd",
       "scores": {
         "1080p": 73.13,
-        "1440p": null,
-        "4k": null,
+        "1440p": 56.00,
+        "4k": 53.36,
         "overall": 57.51
       }
     },
-    "rx-9070-xtx": {
+    "rx-7900-xtx": {
       "name": "AMD Radeon RX 7900 XTX",
       "vram": 24,
       "generation": "RDNA 3",
       "brand": "amd",
       "scores": {
         "1080p": 76.08,
-        "1440p": null,
-        "4k": null,
+        "1440p": 58.29,
+        "4k": 56.24,
         "overall": 59.86
       }
     },
@@ -133,8 +128,8 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 69.49,
-        "1440p": null,
-        "4k": null,
+        "1440p": 54.72,
+        "4k": 54.25,
         "overall": 56.40
       }
     },
@@ -145,21 +140,9 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 70.23,
-        "1440p": null,
-        "4k": null,
+        "1440p": 54.17,
+        "4k": 53.66,
         "overall": 56.28
-      }
-    },
-    "rx-7900-xt": {
-      "name": "AMD Radeon RX 7900 XT",
-      "vram": 20,
-      "generation": "RDNA 3",
-      "brand": "amd",
-      "scores": {
-        "1080p": 71.29,
-        "1440p": null,
-        "4k": null,
-        "overall": 53.69
       }
     },
     "rx-9070": {
@@ -169,9 +152,21 @@
       "brand": "amd",
       "scores": {
         "1080p": 65.55,
-        "1440p": null,
-        "4k": null,
+        "1440p": 49.26,
+        "4k": 47.31,
         "overall": 50.92
+      }
+    },
+    "rx-7900-xt": {
+      "name": "AMD Radeon RX 7900 XT",
+      "vram": 20,
+      "generation": "RDNA 3",
+      "brand": "amd",
+      "scores": {
+        "1080p": 69.62,
+        "1440p": 50.03,
+        "4k": 47.58,
+        "overall": 52.29
       }
     },
     "rtx-4070-ti-super": {
@@ -181,8 +176,8 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 62.30,
-        "1440p": null,
-        "4k": null,
+        "1440p": 46.57,
+        "4k": 45.29,
         "overall": 48.85
       }
     },
@@ -193,8 +188,8 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 62.34,
-        "1440p": null,
-        "4k": null,
+        "1440p": 42.62,
+        "4k": 41.75,
         "overall": 46.54
       }
     },
@@ -205,8 +200,8 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 57.65,
-        "1440p": null,
-        "4k": null,
+        "1440p": 44.24,
+        "4k": 44.76,
         "overall": 46.48
       }
     },
@@ -217,13 +212,13 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 59.15,
-        "1440p": null,
-        "4k": null,
+        "1440p": 43.19,
+        "4k": 41.38,
         "overall": 45.53
       }
     },
     "rtx-4500-ada": {
-      "name": "Nvidia RTX 4500 (Ada)",
+      "name": "(Nvidia RTX 4500 (Ada))",
       "vram": 24,
       "generation": "Ada",
       "brand": "nvidia",
@@ -241,8 +236,8 @@
       "brand": "amd",
       "scores": {
         "1080p": 60.00,
-        "1440p": null,
-        "4k": null,
+        "1440p": 42.34,
+        "4k": 39.69,
         "overall": 44.77
       }
     },
@@ -253,8 +248,8 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 55.69,
-        "1440p": null,
-        "4k": null,
+        "1440p": 39.76,
+        "4k": 38.17,
         "overall": 42.35
       }
     },
@@ -265,8 +260,8 @@
       "brand": "amd",
       "scores": {
         "1080p": 61.48,
-        "1440p": null,
-        "4k": null,
+        "1440p": 40.83,
+        "4k": 38.97,
         "overall": 44.41
       }
     },
@@ -277,8 +272,8 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 52.24,
-        "1440p": null,
-        "4k": null,
+        "1440p": 39.93,
+        "4k": 40.19,
         "overall": 41.88
       }
     },
@@ -289,8 +284,8 @@
       "brand": "amd",
       "scores": {
         "1080p": 59.48,
-        "1440p": null,
-        "4k": null,
+        "1440p": 40.09,
+        "4k": 37.67,
         "overall": 43.05
       }
     },
@@ -301,8 +296,8 @@
       "brand": "nvidia",
       "scores": {
         "1080p": 52.66,
-        "1440p": null,
-        "4k": null,
+        "1440p": 39.18,
+        "4k": 39.51,
         "overall": 41.62
       }
     },
@@ -312,9 +307,9 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 51.56,
+        "1440p": 37.07,
+        "4k": 37.12,
         "overall": 39.97
       }
     },
@@ -324,9 +319,9 @@
       "generation": "RDNA 3",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 54.81,
+        "1440p": 37.62,
+        "4k": 35.84,
         "overall": 40.45
       }
     },
@@ -336,10 +331,10 @@
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
-        "overall": 38.76
+        "1080p": 55.73,
+        "1440p": 36.10,
+        "4k": 34.68,
+        "overall": 39.76
       }
     },
     "rtx-4070-gddr6x": {
@@ -348,9 +343,9 @@
       "generation": "Ada",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 50.40,
+        "1440p": 35.02,
+        "4k": 33.35,
         "overall": 37.27
       }
     },
@@ -360,9 +355,9 @@
       "generation": "Ada",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 48.54,
+        "1440p": 33.72,
+        "4k": 32.11,
         "overall": 35.88
       }
     },
@@ -372,9 +367,9 @@
       "generation": "Blackwell",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 47.76,
+        "1440p": 31.33,
+        "4k": 29.86,
         "overall": 34.38
       }
     },
@@ -384,14 +379,14 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 47.29,
+        "1440p": 35.00,
+        "4k": 35.05,
         "overall": 37.18
       }
     },
-    "rtx-4000-blackwell": {
-      "name": "Nvidia RTX 4000 (Blackwell)",
+    "rtx-pro-4000-blackwell": {
+      "name": "(Nvidia RTX Pro 4000 (Blackwell))",
       "vram": 24,
       "generation": "Blackwell",
       "brand": "nvidia",
@@ -408,14 +403,14 @@
       "generation": "RDNA 4",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 46.04,
+        "1440p": 30.76,
+        "4k": 29.32,
         "overall": 33.71
       }
     },
-    "rx-pro-w8800": {
-      "name": "AMD Radeon Pro W8800",
+    "rx-pro-w6800": {
+      "name": "(AMD Radeon Pro W6800)",
       "vram": 32,
       "generation": "RDNA 2",
       "brand": "amd",
@@ -423,7 +418,7 @@
         "1080p": null,
         "1440p": null,
         "4k": null,
-        "overall": 36.39
+        "overall": 35.39
       }
     },
     "rtx-4000-ada": {
@@ -444,9 +439,9 @@
       "generation": "RDNA 3",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 47.85,
+        "1440p": 31.84,
+        "4k": 30.00,
         "overall": 34.56
       }
     },
@@ -468,9 +463,9 @@
       "generation": "Blackwell",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 45.49,
+        "1440p": 30.50,
+        "4k": 29.62,
         "overall": 33.41
       }
     },
@@ -480,9 +475,9 @@
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 47.91,
+        "1440p": 30.25,
+        "4k": 29.34,
         "overall": 34.00
       }
     },
@@ -492,9 +487,9 @@
       "generation": "RDNA 4",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 45.31,
+        "1440p": 30.18,
+        "4k": 28.22,
         "overall": 33.04
       }
     },
@@ -504,9 +499,9 @@
       "generation": "Turing RTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 42.02,
+        "1440p": 30.38,
+        "4k": 30.55,
         "overall": 32.24
       }
     },
@@ -516,9 +511,9 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 42.82,
+        "1440p": 29.25,
+        "4k": 29.40,
         "overall": 32.41
       }
     },
@@ -528,9 +523,9 @@
       "generation": "Ada",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 40.79,
+        "1440p": 26.72,
+        "4k": 25.04,
         "overall": 29.31
       }
     },
@@ -540,9 +535,9 @@
       "generation": "Blackwell",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 42.33,
+        "1440p": 27.07,
+        "4k": 25.87,
         "overall": 30.14
       }
     },
@@ -552,9 +547,9 @@
       "generation": "Turing RTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 39.58,
+        "1440p": 27.84,
+        "4k": 27.47,
         "overall": 30.02
       }
     },
@@ -576,9 +571,9 @@
       "generation": "Ada",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 40.75,
+        "1440p": 26.65,
+        "4k": 25.02,
         "overall": 29.24
       }
     },
@@ -588,9 +583,9 @@
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 42.25,
+        "1440p": 25.72,
+        "4k": 24.90,
         "overall": 29.34
       }
     },
@@ -600,9 +595,9 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 39.18,
+        "1440p": 26.90,
+        "4k": 26.92,
         "overall": 29.61
       }
     },
@@ -612,9 +607,9 @@
       "generation": "Battlemage",
       "brand": "intel",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 39.96,
+        "1440p": 25.49,
+        "4k": 24.44,
         "overall": 28.63
       }
     },
@@ -643,14 +638,14 @@
       }
     },
     "rx-9060": {
-      "name": "AMD Radeon RX 9060",
+      "name": "(AMD Radeon RX 9060)",
       "vram": 8,
       "generation": "RDNA 4",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 37.79,
+        "1440p": 25.40,
+        "4k": 24.21,
         "overall": 28.00
       }
     },
@@ -660,9 +655,9 @@
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 40.20,
+        "1440p": 24.06,
+        "4k": 23.27,
         "overall": 27.82
       }
     },
@@ -672,9 +667,9 @@
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 39.81,
+        "1440p": 23.90,
+        "4k": 23.17,
         "overall": 27.64
       }
     },
@@ -684,9 +679,9 @@
       "generation": "Alchemist",
       "brand": "intel",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 37.74,
+        "1440p": 24.65,
+        "4k": 22.33,
         "overall": 27.18
       }
     },
@@ -696,9 +691,9 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 34.85,
+        "1440p": 23.50,
+        "4k": 23.09,
         "overall": 25.71
       }
     },
@@ -708,21 +703,21 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 37.41,
+        "1440p": 24.23,
+        "4k": 23.80,
         "overall": 27.42
       }
     },
-    "titan-v-volta": {
+    "titan-v": {
       "name": "Nvidia Titan V (Volta)",
       "vram": 12,
       "generation": "Volta",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 38.45,
+        "1440p": 26.75,
+        "4k": 26.36,
         "overall": 29.56
       }
     },
@@ -732,9 +727,9 @@
       "generation": "RDNA 3",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 36.43,
+        "1440p": 21.61,
+        "4k": 21.11,
         "overall": 25.24
       }
     },
@@ -744,9 +739,9 @@
       "generation": "Ada",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 33.58,
+        "1440p": 21.57,
+        "4k": 20.63,
         "overall": 23.87
       }
     },
@@ -756,9 +751,9 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 34.43,
+        "1440p": 23.17,
+        "4k": 23.09,
         "overall": 25.69
       }
     },
@@ -768,9 +763,9 @@
       "generation": "Battlemage",
       "brand": "intel",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 34.69,
+        "1440p": 21.87,
+        "4k": 20.89,
         "overall": 24.80
       }
     },
@@ -780,10 +775,34 @@
       "generation": "Blackwell",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 34.23,
+        "1440p": 20.57,
+        "4k": 19.85,
         "overall": 23.85
+      }
+    },
+    "rtx-4060": {
+      "name": "Nvidia GeForce RTX 4060",
+      "vram": 8,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 34.30,
+        "1440p": 21.13,
+        "4k": 19.91,
+        "overall": 24.02
+      }
+    },
+    "rx-7650-gre": {
+      "name": "AMD Radeon RX 7650 GRE",
+      "vram": 8,
+      "generation": "RDNA 3",
+      "brand": "amd",
+      "scores": {
+        "1080p": 36.22,
+        "1440p": 20.90,
+        "4k": null,
+        "overall": 24.94
       }
     },
     "arc-a770-8gb": {
@@ -793,33 +812,9 @@
       "brand": "intel",
       "scores": {
         "1080p": null,
-        "1440p": null,
-        "4k": null,
-        "overall": 25.20
-      }
-    },
-    "rtx-4060": {
-      "name": "Nvidia GeForce RTX 4060",
-      "vram": 8,
-      "generation": "Ada",
-      "brand": "nvidia",
-      "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
-        "overall": 24.02
-      }
-    },
-    "rx-7600-gre": {
-      "name": "AMD Radeon RX 7600 GRE",
-      "vram": 8,
-      "generation": "RDNA 3",
-      "brand": "amd",
-      "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
-        "overall": 24.94
+        "1440p": 20.54,
+        "4k": 21.21,
+        "overall": 25.27
       }
     },
     "rtx-2080-super": {
@@ -828,9 +823,9 @@
       "generation": "Turing RTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 33.39,
+        "1440p": 22.62,
+        "4k": 21.85,
         "overall": 24.82
       }
     },
@@ -840,8 +835,8 @@
       "generation": "RDNA 3",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 35.42,
+        "1440p": 20.93,
         "4k": null,
         "overall": 24.49
       }
@@ -852,8 +847,8 @@
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 35.33,
+        "1440p": 20.50,
         "4k": null,
         "overall": 24.11
       }
@@ -864,8 +859,8 @@
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 35.15,
+        "1440p": 20.54,
         "4k": null,
         "overall": 23.96
       }
@@ -876,8 +871,8 @@
       "generation": "Alchemist",
       "brand": "intel",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 34.08,
+        "1440p": 22.23,
         "4k": null,
         "overall": 24.57
       }
@@ -888,9 +883,9 @@
       "generation": "Turing RTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 28.96,
+        "1440p": 21.44,
+        "4k": 21.14,
         "overall": 22.34
       }
     },
@@ -900,20 +895,20 @@
       "generation": "Turing RTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
-        "4k": null,
+        "1080p": 31.74,
+        "1440p": 21.27,
+        "4k": 20.74,
         "overall": 23.48
       }
     },
-    "titan-xp-pascal": {
+    "titan-xp": {
       "name": "Nvidia Titan Xp (Pascal)",
       "vram": 12,
       "generation": "Pascal",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 34.43,
+        "1440p": 19.42,
         "4k": null,
         "overall": 24.09
       }
@@ -924,8 +919,8 @@
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 33.92,
+        "1440p": 19.39,
         "4k": null,
         "overall": 22.94
       }
@@ -936,8 +931,8 @@
       "generation": "Turing RTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 30.32,
+        "1440p": 19.83,
         "4k": null,
         "overall": 22.23
       }
@@ -948,8 +943,8 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 28.42,
+        "1440p": 18.09,
         "4k": null,
         "overall": 20.19
       }
@@ -960,8 +955,8 @@
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 32.85,
+        "1440p": 18.48,
         "4k": null,
         "overall": 22.10
       }
@@ -972,8 +967,8 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 27.57,
+        "1440p": 17.84,
         "4k": null,
         "overall": 19.97
       }
@@ -984,8 +979,8 @@
       "generation": "Pascal",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 32.75,
+        "1440p": 18.26,
         "4k": null,
         "overall": 22.83
       }
@@ -996,8 +991,8 @@
       "generation": "Alchemist",
       "brand": "intel",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 30.02,
+        "1440p": 19.33,
         "4k": null,
         "overall": 21.70
       }
@@ -1008,8 +1003,8 @@
       "generation": "Pascal",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 31.52,
+        "1440p": 18.18,
         "4k": null,
         "overall": 22.23
       }
@@ -1020,8 +1015,8 @@
       "generation": "Ada",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 26.23,
+        "1440p": 16.70,
         "4k": null,
         "overall": 18.43
       }
@@ -1032,8 +1027,8 @@
       "generation": "RDNA 1",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 30.89,
+        "1440p": 16.60,
         "4k": null,
         "overall": 21.46
       }
@@ -1044,8 +1039,8 @@
       "generation": "Turing RTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 27.28,
+        "1440p": 17.32,
         "4k": null,
         "overall": 19.78
       }
@@ -1056,8 +1051,8 @@
       "generation": "Turing RTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 26.53,
+        "1440p": 16.67,
         "4k": null,
         "overall": 19.13
       }
@@ -1068,20 +1063,20 @@
       "generation": "Turing RTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 25.46,
+        "1440p": 15.79,
         "4k": null,
         "overall": 18.10
       }
     },
-    "radeon-pro-w6600": {
+    "rx-pro-w6600": {
       "name": "AMD Radeon Pro W6600",
       "vram": 8,
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 28.14,
+        "1440p": 15.47,
         "4k": null,
         "overall": 18.83
       }
@@ -1092,8 +1087,8 @@
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 27.82,
+        "1440p": 15.50,
         "4k": null,
         "overall": 18.66
       }
@@ -1104,8 +1099,8 @@
       "generation": "Turing RTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 24.94,
+        "1440p": 15.95,
         "4k": null,
         "overall": 18.05
       }
@@ -1116,8 +1111,8 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 24.23,
+        "1440p": 15.45,
         "4k": null,
         "overall": 17.28
       }
@@ -1128,20 +1123,20 @@
       "generation": "RDNA 1",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 27.52,
+        "1440p": 14.44,
         "4k": null,
         "overall": 18.93
       }
     },
     "rx-6600-le": {
-      "name": "AMD Radeon RX 6600 LE",
+      "name": "(AMD Radeon RX 6600 LE)",
       "vram": 8,
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
         "1080p": null,
-        "1440p": null,
+        "1440p": 14.77,
         "4k": null,
         "overall": 17.20
       }
@@ -1152,8 +1147,8 @@
       "generation": "Turing RTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 23.87,
+        "1440p": 14.80,
         "4k": null,
         "overall": 17.04
       }
@@ -1164,8 +1159,8 @@
       "generation": "Alchemist",
       "brand": "intel",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 22.81,
+        "1440p": 13.31,
         "4k": null,
         "overall": 15.84
       }
@@ -1176,8 +1171,8 @@
       "generation": "RDNA 1",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 25.27,
+        "1440p": 13.43,
         "4k": null,
         "overall": 17.47
       }
@@ -1188,8 +1183,8 @@
       "generation": "Pascal",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 25.11,
+        "1440p": 13.91,
         "4k": null,
         "overall": 17.32
       }
@@ -1200,8 +1195,8 @@
       "generation": "GCN 5",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 26.38,
+        "1440p": 13.83,
         "4k": null,
         "overall": 17.91
       }
@@ -1212,8 +1207,8 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 18.90,
+        "1440p": 12.21,
         "4k": null,
         "overall": 13.60
       }
@@ -1224,20 +1219,20 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 19.76,
+        "1440p": 12.44,
         "4k": null,
         "overall": 14.25
       }
     },
-    "radeon-pro-w7500": {
+    "rx-pro-w7500": {
       "name": "AMD Radeon Pro W7500",
       "vram": 8,
       "generation": "RDNA 3 WS",
       "brand": "amd",
       "scores": {
         "1080p": null,
-        "1440p": null,
+        "1440p": 12.03,
         "4k": null,
         "overall": 14.40
       }
@@ -1248,8 +1243,8 @@
       "generation": "RDNA 1",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 23.28,
+        "1440p": 12.27,
         "4k": null,
         "overall": 15.96
       }
@@ -1260,20 +1255,20 @@
       "generation": "Pascal",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 23.18,
+        "1440p": 13.07,
         "4k": null,
         "overall": 16.02
       }
     },
-    "radeon-pro-wx9100": {
+    "rx-pro-wx9100": {
       "name": "AMD Radeon Pro WX9100",
       "vram": 16,
       "generation": "GCN 5",
       "brand": "amd",
       "scores": {
         "1080p": null,
-        "1440p": null,
+        "1440p": 12.66,
         "4k": null,
         "overall": 15.78
       }
@@ -1284,8 +1279,8 @@
       "generation": "GCN 5",
       "brand": "amd",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 24.03,
+        "1440p": 12.40,
         "4k": null,
         "overall": 16.26
       }
@@ -1296,8 +1291,8 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 19.05,
+        "1440p": 12.07,
         "4k": null,
         "overall": 13.65
       }
@@ -1308,8 +1303,8 @@
       "generation": "Pascal",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 21.32,
+        "1440p": 11.58,
         "4k": null,
         "overall": 14.60
       }
@@ -1320,8 +1315,8 @@
       "generation": "Turing GTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
-        "1440p": null,
+        "1080p": 20.45,
+        "1440p": 11.80,
         "4k": null,
         "overall": 14.23
       }
@@ -1332,7 +1327,7 @@
       "generation": "Turing GTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 19.98,
         "1440p": null,
         "4k": null,
         "overall": 13.84
@@ -1344,7 +1339,7 @@
       "generation": "Maxwell",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 20.37,
         "1440p": null,
         "4k": null,
         "overall": 13.66
@@ -1356,7 +1351,7 @@
       "generation": "Maxwell",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 21.06,
         "1440p": null,
         "4k": null,
         "overall": 14.23
@@ -1368,7 +1363,7 @@
       "generation": "Turing GTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 17.74,
         "1440p": null,
         "4k": null,
         "overall": 12.30
@@ -1380,7 +1375,7 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 15.61,
         "1440p": null,
         "4k": null,
         "overall": 10.90
@@ -1404,7 +1399,7 @@
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
-        "1080p": null,
+        "1080p": 18.08,
         "1440p": null,
         "4k": null,
         "overall": 11.51
@@ -1416,7 +1411,7 @@
       "generation": "RDNA 1",
       "brand": "amd",
       "scores": {
-        "1080p": null,
+        "1080p": 16.84,
         "1440p": null,
         "4k": null,
         "overall": 11.53
@@ -1428,43 +1423,43 @@
       "generation": "GCN 4",
       "brand": "amd",
       "scores": {
-        "1080p": null,
+        "1080p": 18.35,
         "1440p": null,
         "4k": null,
         "overall": 12.04
       }
     },
-    "rx-5500-xt-4gb-default": {
+    "rx-5500-xt-4gb": {
       "name": "AMD Radeon RX 5500 XT (4GB default)",
       "vram": 4,
       "generation": "RDNA 1",
       "brand": "amd",
       "scores": {
-        "1080p": null,
+        "1080p": 16.84,
         "1440p": null,
         "4k": null,
         "overall": 11.53
       }
     },
-    "rtx-x1000": {
-      "name": "Nvidia RTX X1000",
+    "rtx-a1000": {
+      "name": "(Nvidia RTX A1000)",
       "vram": 8,
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 12.69,
         "1440p": null,
         "4k": null,
         "overall": 9.75
       }
     },
-    "rx-580": {
-      "name": "AMD Radeon RX 580",
+    "rx-5500": {
+      "name": "AMD Radeon RX 5500",
       "vram": 4,
       "generation": "RDNA 1",
       "brand": "amd",
       "scores": {
-        "1080p": null,
+        "1080p": 16.75,
         "1440p": null,
         "4k": null,
         "overall": 11.30
@@ -1476,7 +1471,7 @@
       "generation": "GCN 4",
       "brand": "amd",
       "scores": {
-        "1080p": null,
+        "1080p": 16.99,
         "1440p": null,
         "4k": null,
         "overall": 11.21
@@ -1500,7 +1495,7 @@
       "generation": "GCN 4",
       "brand": "amd",
       "scores": {
-        "1080p": null,
+        "1080p": 16.74,
         "1440p": null,
         "4k": null,
         "overall": 11.03
@@ -1512,7 +1507,7 @@
       "generation": "Pascal",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 15.41,
         "1440p": null,
         "4k": null,
         "overall": 10.41
@@ -1524,7 +1519,7 @@
       "generation": "Turing GTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 15.69,
         "1440p": null,
         "4k": null,
         "overall": 10.41
@@ -1536,7 +1531,7 @@
       "generation": "Alchemist",
       "brand": "intel",
       "scores": {
-        "1080p": null,
+        "1080p": 12.84,
         "1440p": null,
         "4k": null,
         "overall": 9.05
@@ -1548,14 +1543,14 @@
       "generation": "Maxwell",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 16.36,
         "1440p": null,
         "4k": null,
         "overall": 10.67
       }
     },
-    "p106-090": {
-      "name": "Nvidia P106 090",
+    "p106-100": {
+      "name": "Nvidia P106 100",
       "vram": 6,
       "generation": "Pascal mining",
       "brand": "nvidia",
@@ -1566,7 +1561,7 @@
         "overall": 9.73
       }
     },
-    "radeon-pro-w6400": {
+    "rx-pro-w6400": {
       "name": "AMD Radeon Pro W6400",
       "vram": 4,
       "generation": "RDNA 2",
@@ -1584,7 +1579,7 @@
       "generation": "RDNA 2",
       "brand": "amd",
       "scores": {
-        "1080p": null,
+        "1080p": 13.73,
         "1440p": null,
         "4k": null,
         "overall": 8.59
@@ -1596,7 +1591,7 @@
       "generation": "GCN 4",
       "brand": "amd",
       "scores": {
-        "1080p": null,
+        "1080p": 14.87,
         "1440p": null,
         "4k": null,
         "overall": 9.75
@@ -1608,7 +1603,7 @@
       "generation": "Pascal",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 14.22,
         "1440p": null,
         "4k": null,
         "overall": 9.07
@@ -1620,7 +1615,7 @@
       "generation": "Turing GTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 12.66,
         "1440p": null,
         "4k": null,
         "overall": 8.42
@@ -1632,19 +1627,19 @@
       "generation": "Maxwell",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 13.83,
         "1440p": null,
         "4k": null,
         "overall": 8.92
       }
     },
-    "gtx-1650-gddr5-default": {
+    "gtx-1650-gddr5": {
       "name": "Nvidia GeForce GTX 1650 (GDDR5 Default)",
       "vram": 4,
       "generation": "Turing GTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 12.19,
         "1440p": null,
         "4k": null,
         "overall": 8.10
@@ -1656,7 +1651,7 @@
       "generation": "GCN 4",
       "brand": "amd",
       "scores": {
-        "1080p": null,
+        "1080p": 13.41,
         "1440p": null,
         "4k": null,
         "overall": 8.78
@@ -1668,7 +1663,7 @@
       "generation": "Alchemist",
       "brand": "intel",
       "scores": {
-        "1080p": null,
+        "1080p": 9.88,
         "1440p": null,
         "4k": null,
         "overall": 6.85
@@ -1680,14 +1675,14 @@
       "generation": "Alchemist",
       "brand": "intel",
       "scores": {
-        "1080p": null,
+        "1080p": 8.98,
         "1440p": null,
         "4k": null,
         "overall": 6.27
       }
     },
-    "gtx-1000-8gb": {
-      "name": "Nvidia GTX 1000 (8GB)",
+    "t1000-8gb": {
+      "name": "(Nvidia T1000 (8GB))",
       "vram": 8,
       "generation": "Turing GTX",
       "brand": "nvidia",
@@ -1704,7 +1699,7 @@
       "generation": "Turing GTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 9.69,
         "1440p": null,
         "4k": null,
         "overall": 6.20
@@ -1716,7 +1711,7 @@
       "generation": "Pascal",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 9.27,
         "1440p": null,
         "4k": null,
         "overall": 6.07
@@ -1728,19 +1723,19 @@
       "generation": "Ampere",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 6.64,
         "1440p": null,
         "4k": null,
         "overall": 4.70
       }
     },
-    "gtx-960": {
+"gtx-960": {
       "name": "Nvidia GeForce GTX 960",
       "vram": 2,
       "generation": "Maxwell",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 8.92,
         "1440p": null,
         "4k": null,
         "overall": 5.64
@@ -1764,7 +1759,7 @@
       "generation": "Turing GTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 7.43,
         "1440p": null,
         "4k": null,
         "overall": 4.97
@@ -1776,7 +1771,7 @@
       "generation": "Turing GTX",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 7.50,
         "1440p": null,
         "4k": null,
         "overall": 4.79
@@ -1788,7 +1783,7 @@
       "generation": "Pascal",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 7.76,
         "1440p": null,
         "4k": null,
         "overall": 4.57
@@ -1800,7 +1795,7 @@
       "generation": "GCN 4",
       "brand": "amd",
       "scores": {
-        "1080p": null,
+        "1080p": 7.31,
         "1440p": null,
         "4k": null,
         "overall": 4.55
@@ -1812,7 +1807,7 @@
       "generation": "Maxwell",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 7.58,
         "1440p": null,
         "4k": null,
         "overall": 4.36
@@ -1824,7 +1819,7 @@
       "generation": "GCN 4",
       "brand": "amd",
       "scores": {
-        "1080p": null,
+        "1080p": 5.07,
         "1440p": null,
         "4k": null,
         "overall": 3.16
@@ -1836,7 +1831,7 @@
       "generation": "Pascal",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 4.27,
         "1440p": null,
         "4k": null,
         "overall": 2.38
@@ -1848,7 +1843,7 @@
       "generation": "Pascal",
       "brand": "nvidia",
       "scores": {
-        "1080p": null,
+        "1080p": 2.30,
         "1440p": null,
         "4k": null,
         "overall": 1.43
