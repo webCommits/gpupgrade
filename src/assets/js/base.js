@@ -3,20 +3,16 @@ window.gpuData = null;
 
 async function loadGPUData() {
   try {
-    // Fix path resolution for GitHub Pages
-    const basePath = document.querySelector('meta[name="base-path"]')?.content || '';
-    const dataPath = `${basePath}/assets/data/gpu-data.json`;
-    
-    const response = await fetch(dataPath, { cache: 'no-store' });
+    const response = await fetch(`${window.globalUrl || ''}/assets/data/gpu-data.json`);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     window.gpuData = await response.json();
     console.log('GPU Data loaded:', window.gpuData);
   } catch (err) {
     console.error('Failed to load GPU data:', err);
-    window.gpuData = { gpus: {}, resolutions: ['overall'] }; // fallback
+    window.gpuData = { gpus: {} };
   }
-  return window.gpuData;
 }
+
 
 // Page-specific initialization
 document.addEventListener('DOMContentLoaded', async function() {

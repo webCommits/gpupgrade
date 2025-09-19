@@ -45,6 +45,10 @@
 }
 </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+  window.globalUrl = "{{ global.url }}";
+</script>
+
 </head>
 
 <body>
@@ -114,7 +118,6 @@
         </div>
     </footer>
     <script src="{{ global.url }}/assets/js/base.js"></script>
-    <script src="{{ global.url }}/assets/data/gpus.json"></script>
 </body>
 
 </html>
