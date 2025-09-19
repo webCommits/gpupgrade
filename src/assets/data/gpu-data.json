@@ -1,0 +1,1858 @@
+{
+  "resolutions": [
+    "1080p",
+    "1440p",
+    "4k",
+    "overall"
+  ],
+  "gpus": {
+    "rtx-pro-6000-blackwell": {
+      "name": "Nvidia RTX Pro 6000 (Blackwell)",
+      "vram": 96,
+      "generation": "Blackwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 100.0
+      }
+    },
+    "rtx-5090-d": {
+      "name": "Nvidia GeForce RTX 5090 D",
+      "vram": 32,
+      "generation": "Blackwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 100.0,
+        "1440p": null,
+        "4k": null,
+        "overall": 95.24
+      }
+    },
+    "rtx-5090": {
+      "name": "Nvidia GeForce RTX 5090",
+      "vram": 32,
+      "generation": "Blackwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 96.54,
+        "1440p": null,
+        "4k": null,
+        "overall": 92.19
+      }
+    },
+    "rtx-4090": {
+      "name": "Nvidia GeForce RTX 4090",
+      "vram": 24,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 80.34,
+        "1440p": null,
+        "4k": null,
+        "overall": 70.6
+      }
+    },
+    "rtx-4090-d": {
+      "name": "Nvidia GeForce RTX 4090 D",
+      "vram": 24,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 76.12,
+        "1440p": null,
+        "4k": null,
+        "overall": 68.44
+      }
+    },
+    "rtx-5080": {
+      "name": "Nvidia GeForce RTX 5080",
+      "vram": 16,
+      "generation": "Blackwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 79.99,
+        "1440p": null,
+        "4k": null,
+        "overall": 66.03
+      }
+    },
+    "rtx-6000-ada": {
+      "name": "Nvidia RTX 6000 (Ada)",
+      "vram": 48,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 61.23
+      }
+    },
+    "rtx-5070-ti": {
+      "name": "Nvidia GeForce RTX 5070 Ti",
+      "vram": 16,
+      "generation": "Blackwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 72.05,
+        "1440p": null,
+        "4k": null,
+        "overall": 56.75
+      }
+    },
+    "rx-9070-xt": {
+      "name": "AMD Radeon RX 9070 XT",
+      "vram": 16,
+      "generation": "RDNA 4",
+      "brand": "amd",
+      "scores": {
+        "1080p": 73.13,
+        "1440p": null,
+        "4k": null,
+        "overall": 57.51
+      }
+    },
+    "rx-9070-xtx": {
+      "name": "AMD Radeon RX 7900 XTX",
+      "vram": 24,
+      "generation": "RDNA 3",
+      "brand": "amd",
+      "scores": {
+        "1080p": 76.08,
+        "1440p": null,
+        "4k": null,
+        "overall": 59.86
+      }
+    },
+    "rtx-4080-super": {
+      "name": "Nvidia GeForce RTX 4080 Super",
+      "vram": 16,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 69.49,
+        "1440p": null,
+        "4k": null,
+        "overall": 56.40
+      }
+    },
+    "rtx-4080": {
+      "name": "Nvidia GeForce RTX 4080",
+      "vram": 16,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 70.23,
+        "1440p": null,
+        "4k": null,
+        "overall": 56.28
+      }
+    },
+    "rx-7900-xt": {
+      "name": "AMD Radeon RX 7900 XT",
+      "vram": 20,
+      "generation": "RDNA 3",
+      "brand": "amd",
+      "scores": {
+        "1080p": 71.29,
+        "1440p": null,
+        "4k": null,
+        "overall": 53.69
+      }
+    },
+    "rx-9070": {
+      "name": "AMD Radeon RX 9070",
+      "vram": 16,
+      "generation": "RDNA 4",
+      "brand": "amd",
+      "scores": {
+        "1080p": 65.55,
+        "1440p": null,
+        "4k": null,
+        "overall": 50.92
+      }
+    },
+    "rtx-4070-ti-super": {
+      "name": "Nvidia GeForce RTX 4070 Ti Super",
+      "vram": 16,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 62.30,
+        "1440p": null,
+        "4k": null,
+        "overall": 48.85
+      }
+    },
+    "rtx-5070": {
+      "name": "Nvidia GeForce RTX 5070",
+      "vram": 12,
+      "generation": "Blackwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 62.34,
+        "1440p": null,
+        "4k": null,
+        "overall": 46.54
+      }
+    },
+    "rtx-3090-ti": {
+      "name": "Nvidia GeForce RTX 3090 Ti",
+      "vram": 24,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 57.65,
+        "1440p": null,
+        "4k": null,
+        "overall": 46.48
+      }
+    },
+    "rtx-4070-ti": {
+      "name": "Nvidia GeForce RTX 4070 Ti",
+      "vram": 12,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 59.15,
+        "1440p": null,
+        "4k": null,
+        "overall": 45.53
+      }
+    },
+    "rtx-4500-ada": {
+      "name": "Nvidia RTX 4500 (Ada)",
+      "vram": 24,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 43.71
+      }
+    },
+    "rx-7900-gre": {
+      "name": "AMD Radeon RX 7900 GRE",
+      "vram": 16,
+      "generation": "RDNA 3",
+      "brand": "amd",
+      "scores": {
+        "1080p": 60.00,
+        "1440p": null,
+        "4k": null,
+        "overall": 44.77
+      }
+    },
+    "rtx-4070-super": {
+      "name": "Nvidia GeForce RTX 4070 Super",
+      "vram": 12,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 55.69,
+        "1440p": null,
+        "4k": null,
+        "overall": 42.35
+      }
+    },
+    "rx-6950-xt": {
+      "name": "AMD Radeon RX 6950 XT",
+      "vram": 16,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": 61.48,
+        "1440p": null,
+        "4k": null,
+        "overall": 44.41
+      }
+    },
+    "rtx-3090": {
+      "name": "Nvidia GeForce RTX 3090",
+      "vram": 24,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 52.24,
+        "1440p": null,
+        "4k": null,
+        "overall": 41.88
+      }
+    },
+    "rx-6900-xt": {
+      "name": "AMD Radeon RX 6900 XT",
+      "vram": 16,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": 59.48,
+        "1440p": null,
+        "4k": null,
+        "overall": 43.05
+      }
+    },
+    "rtx-3080-ti": {
+      "name": "Nvidia GeForce RTX 3080 Ti",
+      "vram": 12,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": 52.66,
+        "1440p": null,
+        "4k": null,
+        "overall": 41.62
+      }
+    },
+    "rtx-3080-12gb": {
+      "name": "Nvidia GeForce RTX 3080 (12GB)",
+      "vram": 12,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 39.97
+      }
+    },
+    "rx-7800-xt": {
+      "name": "AMD Radeon RX 7800 XT",
+      "vram": 16,
+      "generation": "RDNA 3",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 40.45
+      }
+    },
+    "rx-6800-xt": {
+      "name": "AMD Radeon RX 6800 XT",
+      "vram": 16,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 38.76
+      }
+    },
+    "rtx-4070-gddr6x": {
+      "name": "Nvidia GeForce RTX 4070 (GDDR6x)",
+      "vram": 12,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 37.27
+      }
+    },
+    "rtx-4070-gddr6": {
+      "name": "Nvidia GeForce RTX 4070 (GDDR6)",
+      "vram": 12,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 35.88
+      }
+    },
+    "rtx-5060-ti-16gb": {
+      "name": "Nvidia GeForce RTX 5060 Ti (16GB)",
+      "vram": 16,
+      "generation": "Blackwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 34.38
+      }
+    },
+    "rtx-3080-10gb": {
+      "name": "Nvidia GeForce RTX 3080 (10GB)",
+      "vram": 10,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 37.18
+      }
+    },
+    "rtx-4000-blackwell": {
+      "name": "Nvidia RTX 4000 (Blackwell)",
+      "vram": 24,
+      "generation": "Blackwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 33.75
+      }
+    },
+    "rx-9060-xt-16gb": {
+      "name": "AMD Radeon RX 9060 XT (16GB)",
+      "vram": 16,
+      "generation": "RDNA 4",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 33.71
+      }
+    },
+    "rx-pro-w8800": {
+      "name": "AMD Radeon Pro W8800",
+      "vram": 32,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 36.39
+      }
+    },
+    "rtx-4000-ada": {
+      "name": "Nvidia RTX 4000 (Ada)",
+      "vram": 20,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 33.02
+      }
+    },
+    "rx-7700-xt": {
+      "name": "AMD Radeon RX 7700 XT",
+      "vram": 12,
+      "generation": "RDNA 3",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 34.56
+      }
+    },
+    "rtx-a5000": {
+      "name": "Nvidia RTX A5000",
+      "vram": 24,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 33.01
+      }
+    },
+    "rtx-5060-ti-8gb": {
+      "name": "Nvidia GeForce RTX 5060 Ti (8GB)",
+      "vram": 8,
+      "generation": "Blackwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 33.41
+      }
+    },
+    "rx-6800": {
+      "name": "AMD Radeon RX 6800",
+      "vram": 16,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 34.00
+      }
+    },
+    "rx-9060-xt-8gb": {
+      "name": "AMD Radeon RX 9060 XT (8GB)",
+      "vram": 8,
+      "generation": "RDNA 4",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 33.04
+      }
+    },
+    "titan-rtx-turing": {
+      "name": "Nvidia Titan RTX (Turing)",
+      "vram": 24,
+      "generation": "Turing RTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 32.24
+      }
+    },
+    "rtx-3070-ti": {
+      "name": "Nvidia GeForce RTX 3070 Ti",
+      "vram": 8,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 32.41
+      }
+    },
+    "rtx-4060-ti-16gb": {
+      "name": "Nvidia GeForce RTX 4060 Ti (16GB)",
+      "vram": 16,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 29.31
+      }
+    },
+    "rtx-5060": {
+      "name": "Nvidia GeForce RTX 5060",
+      "vram": 8,
+      "generation": "Blackwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 30.14
+      }
+    },
+    "rtx-2080-ti": {
+      "name": "Nvidia GeForce RTX 2080 Ti",
+      "vram": 11,
+      "generation": "Turing RTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 30.02
+      }
+    },
+    "quadro-rtx-6000": {
+      "name": "Nvidia Quadro RTX 6000",
+      "vram": 24,
+      "generation": "Turing RTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 29.02
+      }
+    },
+    "rtx-4060-ti-8gb": {
+      "name": "Nvidia GeForce RTX 4060 Ti (8GB)",
+      "vram": 8,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 29.24
+      }
+    },
+    "rx-6750-xt": {
+      "name": "AMD Radeon RX 6750 XT",
+      "vram": 12,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 29.34
+      }
+    },
+    "rtx-3070": {
+      "name": "Nvidia GeForce RTX 3070",
+      "vram": 8,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 29.61
+      }
+    },
+    "arc-b580": {
+      "name": "Intel Arc B580",
+      "vram": 12,
+      "generation": "Battlemage",
+      "brand": "intel",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 28.63
+      }
+    },
+    "rtx-a4500": {
+      "name": "Nvidia RTX A4500",
+      "vram": 20,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 27.28
+      }
+    },
+    "quadro-rtx-8000": {
+      "name": "Nvidia Quadro RTX 8000",
+      "vram": 48,
+      "generation": "Turing RTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 28.15
+      }
+    },
+    "rx-9060": {
+      "name": "AMD Radeon RX 9060",
+      "vram": 8,
+      "generation": "RDNA 4",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 28.00
+      }
+    },
+    "rx-6700-xt": {
+      "name": "AMD Radeon RX 6700 XT",
+      "vram": 12,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 27.82
+      }
+    },
+    "rx-6750-gre-12gb": {
+      "name": "AMD Radeon RX 6750 GRE (12GB)",
+      "vram": 12,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 27.64
+      }
+    },
+    "arc-a770-16gb": {
+      "name": "Intel Arc A770 (16GB)",
+      "vram": 16,
+      "generation": "Alchemist",
+      "brand": "intel",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 27.18
+      }
+    },
+    "rtx-a4000": {
+      "name": "Nvidia RTX A4000",
+      "vram": 16,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 25.71
+      }
+    },
+    "rtx-3060-ti-gddr6x": {
+      "name": "Nvidia GeForce RTX 3060 Ti (GDDR6x)",
+      "vram": 8,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 27.42
+      }
+    },
+    "titan-v-volta": {
+      "name": "Nvidia Titan V (Volta)",
+      "vram": 12,
+      "generation": "Volta",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 29.56
+      }
+    },
+    "rx-7600-xt": {
+      "name": "AMD Radeon RX 7600 XT",
+      "vram": 16,
+      "generation": "RDNA 3",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 25.24
+      }
+    },
+    "rtx-4000-sff-ada": {
+      "name": "Nvidia RTX 4000 SFF (Ada)",
+      "vram": 20,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 23.87
+      }
+    },
+    "rtx-3060-ti-gddr6": {
+      "name": "Nvidia GeForce RTX 3060 Ti (GDDR6)",
+      "vram": 8,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 25.69
+      }
+    },
+    "arc-b570": {
+      "name": "Intel Arc B570",
+      "vram": 10,
+      "generation": "Battlemage",
+      "brand": "intel",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 24.80
+      }
+    },
+    "rtx-5050": {
+      "name": "Nvidia GeForce RTX 5050",
+      "vram": 8,
+      "generation": "Blackwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 23.85
+      }
+    },
+    "arc-a770-8gb": {
+      "name": "Intel Arc A770 (8GB)",
+      "vram": 8,
+      "generation": "Alchemist",
+      "brand": "intel",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 25.20
+      }
+    },
+    "rtx-4060": {
+      "name": "Nvidia GeForce RTX 4060",
+      "vram": 8,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 24.02
+      }
+    },
+    "rx-7600-gre": {
+      "name": "AMD Radeon RX 7600 GRE",
+      "vram": 8,
+      "generation": "RDNA 3",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 24.94
+      }
+    },
+    "rtx-2080-super": {
+      "name": "Nvidia GeForce RTX 2080 Super",
+      "vram": 8,
+      "generation": "Turing RTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 24.82
+      }
+    },
+    "rx-7600": {
+      "name": "AMD Radeon RX 7600",
+      "vram": 8,
+      "generation": "RDNA 3",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 24.49
+      }
+    },
+    "rx-6750-gre-10gb": {
+      "name": "AMD Radeon RX 6750 GRE (10GB)",
+      "vram": 10,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 24.11
+      }
+    },
+    "rx-6700": {
+      "name": "AMD Radeon RX 6700",
+      "vram": 10,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 23.96
+      }
+    },
+    "arc-a750": {
+      "name": "Intel Arc A750",
+      "vram": 8,
+      "generation": "Alchemist",
+      "brand": "intel",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 24.57
+      }
+    },
+    "quadro-rtx-5000": {
+      "name": "Nvidia Quadro RTX 5000",
+      "vram": 16,
+      "generation": "Turing RTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 22.34
+      }
+    },
+    "rtx-2080": {
+      "name": "Nvidia GeForce RTX 2080",
+      "vram": 8,
+      "generation": "Turing RTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 23.48
+      }
+    },
+    "titan-xp-pascal": {
+      "name": "Nvidia Titan Xp (Pascal)",
+      "vram": 12,
+      "generation": "Pascal",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 24.09
+      }
+    },
+    "rx-6650-xt": {
+      "name": "AMD Radeon RX 6650 XT",
+      "vram": 8,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 22.94
+      }
+    },
+    "rtx-2070-super": {
+      "name": "Nvidia GeForce RTX 2070 Super",
+      "vram": 8,
+      "generation": "Turing RTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 22.23
+      }
+    },
+    "rtx-3060-ga104": {
+      "name": "Nvidia GeForce RTX 3060 (GA104)",
+      "vram": 12,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 20.19
+      }
+    },
+    "rx-6600-xt": {
+      "name": "AMD Radeon RX 6600 XT",
+      "vram": 8,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 22.10
+      }
+    },
+    "rtx-3060": {
+      "name": "Nvidia GeForce RTX 3060",
+      "vram": 12,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 19.97
+      }
+    },
+    "titan-x-pascal": {
+      "name": "Nvidia Titan X (Pascal)",
+      "vram": 12,
+      "generation": "Pascal",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 22.83
+      }
+    },
+    "arc-a580": {
+      "name": "Intel Arc A580",
+      "vram": 8,
+      "generation": "Alchemist",
+      "brand": "intel",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 21.70
+      }
+    },
+    "gtx-1080-ti": {
+      "name": "Nvidia GeForce GTX 1080 Ti",
+      "vram": 11,
+      "generation": "Pascal",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 22.23
+      }
+    },
+    "rtx-2000-ada": {
+      "name": "Nvidia RTX 2000 (Ada)",
+      "vram": 16,
+      "generation": "Ada",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 18.43
+      }
+    },
+    "rx-5700-xt": {
+      "name": "AMD Radeon RX 5700 XT",
+      "vram": 8,
+      "generation": "RDNA 1",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 21.46
+      }
+    },
+    "rtx-2070": {
+      "name": "Nvidia GeForce RTX 2070",
+      "vram": 8,
+      "generation": "Turing RTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 19.78
+      }
+    },
+    "rtx-2060-super": {
+      "name": "Nvidia GeForce RTX 2060 Super",
+      "vram": 8,
+      "generation": "Turing RTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 19.13
+      }
+    },
+    "rtx-2060-12gb": {
+      "name": "Nvidia GeForce RTX 2060 (12GB)",
+      "vram": 12,
+      "generation": "Turing RTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 18.10
+      }
+    },
+    "radeon-pro-w6600": {
+      "name": "AMD Radeon Pro W6600",
+      "vram": 8,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 18.83
+      }
+    },
+    "rx-6600": {
+      "name": "AMD Radeon RX 6600",
+      "vram": 8,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 18.66
+      }
+    },
+    "quadro-rtx-4000": {
+      "name": "Nvidia Quadro RTX 4000",
+      "vram": 8,
+      "generation": "Turing RTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 18.05
+      }
+    },
+    "rtx-3060-8gb": {
+      "name": "Nvidia GeForce RTX 3060 (8GB)",
+      "vram": 8,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 17.28
+      }
+    },
+    "rx-5700": {
+      "name": "AMD Radeon RX 5700",
+      "vram": 8,
+      "generation": "RDNA 1",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 18.93
+      }
+    },
+    "rx-6600-le": {
+      "name": "AMD Radeon RX 6600 LE",
+      "vram": 8,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 17.20
+      }
+    },
+    "rtx-2060": {
+      "name": "Nvidia GeForce RTX 2060",
+      "vram": 6,
+      "generation": "Turing RTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 17.04
+      }
+    },
+    "arc-pro-a60": {
+      "name": "Intel Arc Pro A60",
+      "vram": 12,
+      "generation": "Alchemist",
+      "brand": "intel",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 15.84
+      }
+    },
+    "rx-5600-xt": {
+      "name": "AMD Radeon RX 5600 XT",
+      "vram": 6,
+      "generation": "RDNA 1",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 17.47
+      }
+    },
+    "gtx-1080": {
+      "name": "Nvidia GeForce GTX 1080",
+      "vram": 8,
+      "generation": "Pascal",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 17.32
+      }
+    },
+    "rx-vega-64": {
+      "name": "AMD Radeon RX Vega 64",
+      "vram": 8,
+      "generation": "GCN 5",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 17.91
+      }
+    },
+    "rtx-a2000-12gb": {
+      "name": "Nvidia RTX A2000 (12GB)",
+      "vram": 12,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 13.60
+      }
+    },
+    "rtx-3050-8gb": {
+      "name": "Nvidia GeForce RTX 3050 (8GB)",
+      "vram": 8,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 14.25
+      }
+    },
+    "radeon-pro-w7500": {
+      "name": "AMD Radeon Pro W7500",
+      "vram": 8,
+      "generation": "RDNA 3 WS",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 14.40
+      }
+    },
+    "rx-5600": {
+      "name": "AMD Radeon RX 5600",
+      "vram": 6,
+      "generation": "RDNA 1",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 15.96
+      }
+    },
+    "gtx-1070-ti": {
+      "name": "Nvidia GeForce GTX 1070 Ti",
+      "vram": 8,
+      "generation": "Pascal",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 16.02
+      }
+    },
+    "radeon-pro-wx9100": {
+      "name": "AMD Radeon Pro WX9100",
+      "vram": 16,
+      "generation": "GCN 5",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 15.78
+      }
+    },
+    "rx-vega-56": {
+      "name": "AMD Radeon RX Vega 56",
+      "vram": 8,
+      "generation": "GCN 5",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 16.26
+      }
+    },
+    "rtx-a2000-6gb": {
+      "name": "Nvidia RTX A2000 (6GB)",
+      "vram": 6,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 13.65
+      }
+    },
+    "gtx-1070": {
+      "name": "Nvidia GeForce GTX 1070",
+      "vram": 8,
+      "generation": "Pascal",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 14.60
+      }
+    },
+    "gtx-1660-ti": {
+      "name": "Nvidia GeForce GTX 1660 Ti",
+      "vram": 6,
+      "generation": "Turing GTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 14.23
+      }
+    },
+    "gtx-1660-super": {
+      "name": "Nvidia GeForce GTX 1660 Super",
+      "vram": 6,
+      "generation": "Turing GTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 13.84
+      }
+    },
+    "titan-x-2015": {
+      "name": "Nvidia Titan X (2015)",
+      "vram": 12,
+      "generation": "Maxwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 13.66
+      }
+    },
+    "gtx-980-ti": {
+      "name": "Nvidia GeForce GTX 980 Ti",
+      "vram": 6,
+      "generation": "Maxwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 14.23
+      }
+    },
+    "gtx-1660": {
+      "name": "Nvidia GeForce GTX 1660",
+      "vram": 6,
+      "generation": "Turing GTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 12.30
+      }
+    },
+    "rtx-3050-6gb": {
+      "name": "Nvidia GeForce RTX 3050 (6GB)",
+      "vram": 6,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 10.90
+      }
+    },
+    "p102-100": {
+      "name": "Nvidia P102 100",
+      "vram": 5,
+      "generation": "Pascal mining",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 12.87
+      }
+    },
+    "rx-6500-xt": {
+      "name": "AMD Radeon RX 6500 XT",
+      "vram": 4,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 11.51
+      }
+    },
+    "rx-5500-xt-8gb": {
+      "name": "AMD Radeon RX 5500 XT (8GB)",
+      "vram": 8,
+      "generation": "RDNA 1",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 11.53
+      }
+    },
+    "rx-590": {
+      "name": "AMD Radeon RX 590",
+      "vram": 8,
+      "generation": "GCN 4",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 12.04
+      }
+    },
+    "rx-5500-xt-4gb-default": {
+      "name": "AMD Radeon RX 5500 XT (4GB default)",
+      "vram": 4,
+      "generation": "RDNA 1",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 11.53
+      }
+    },
+    "rtx-x1000": {
+      "name": "Nvidia RTX X1000",
+      "vram": 8,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 9.75
+      }
+    },
+    "rx-580": {
+      "name": "AMD Radeon RX 580",
+      "vram": 4,
+      "generation": "RDNA 1",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 11.30
+      }
+    },
+    "rx-590-gme": {
+      "name": "AMD Radeon RX 590 GME",
+      "vram": 8,
+      "generation": "GCN 4",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 11.21
+      }
+    },
+    "p104-100": {
+      "name": "Nvidia P104 100",
+      "vram": 4,
+      "generation": "Pascal mining",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 11.27
+      }
+    },
+    "rx-580": {
+      "name": "AMD Radeon RX 580",
+      "vram": 8,
+      "generation": "GCN 4",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 11.03
+      }
+    },
+    "gtx-1060-6gb": {
+      "name": "Nvidia GeForce GTX 1060 (6GB)",
+      "vram": 6,
+      "generation": "Pascal",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 10.41
+      }
+    },
+    "gtx-1650-super": {
+      "name": "Nvidia GeForce GTX 1650 Super",
+      "vram": 4,
+      "generation": "Turing GTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 10.41
+      }
+    },
+    "arc-a380": {
+      "name": "Intel Arc A380",
+      "vram": 6,
+      "generation": "Alchemist",
+      "brand": "intel",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 9.05
+      }
+    },
+    "gtx-980": {
+      "name": "Nvidia GeForce GTX 980",
+      "vram": 4,
+      "generation": "Maxwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 10.67
+      }
+    },
+    "p106-090": {
+      "name": "Nvidia P106 090",
+      "vram": 6,
+      "generation": "Pascal mining",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 9.73
+      }
+    },
+    "radeon-pro-w6400": {
+      "name": "AMD Radeon Pro W6400",
+      "vram": 4,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 8.91
+      }
+    },
+    "rx-6400": {
+      "name": "AMD Radeon RX 6400",
+      "vram": 4,
+      "generation": "RDNA 2",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 8.59
+      }
+    },
+    "rx-570": {
+      "name": "AMD Radeon RX 570",
+      "vram": 4,
+      "generation": "GCN 4",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 9.75
+      }
+    },
+    "gtx-1060-3gb": {
+      "name": "Nvidia GeForce GTX 1060 (3GB)",
+      "vram": 3,
+      "generation": "Pascal",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 9.07
+      }
+    },
+    "gtx-1650-gddr6": {
+      "name": "Nvidia GeForce GTX 1650 (GDDR6)",
+      "vram": 4,
+      "generation": "Turing GTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 8.42
+      }
+    },
+    "gtx-970": {
+      "name": "Nvidia GeForce GTX 970",
+      "vram": 4,
+      "generation": "Maxwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 8.92
+      }
+    },
+    "gtx-1650-gddr5-default": {
+      "name": "Nvidia GeForce GTX 1650 (GDDR5 Default)",
+      "vram": 4,
+      "generation": "Turing GTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 8.10
+      }
+    },
+    "rx-560-xt": {
+      "name": "AMD Radeon RX 560 XT",
+      "vram": 4,
+      "generation": "GCN 4",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 8.78
+      }
+    },
+    "arc-a350": {
+      "name": "Intel Arc A350",
+      "vram": 4,
+      "generation": "Alchemist",
+      "brand": "intel",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 6.85
+      }
+    },
+    "arc-a310": {
+      "name": "Intel Arc A310",
+      "vram": 4,
+      "generation": "Alchemist",
+      "brand": "intel",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 6.27
+      }
+    },
+    "gtx-1000-8gb": {
+      "name": "Nvidia GTX 1000 (8GB)",
+      "vram": 8,
+      "generation": "Turing GTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 6.32
+      }
+    },
+    "t1000-4gb": {
+      "name": "Nvidia T1000 (4GB)",
+      "vram": 4,
+      "generation": "Turing GTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 6.20
+      }
+    },
+    "gtx-1050-ti": {
+      "name": "Nvidia GeForce GTX 1050 Ti",
+      "vram": 4,
+      "generation": "Pascal",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 6.07
+      }
+    },
+    "rtx-a400": {
+      "name": "Nvidia RTX A400",
+      "vram": 4,
+      "generation": "Ampere",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 4.70
+      }
+    },
+    "gtx-960": {
+      "name": "Nvidia GeForce GTX 960",
+      "vram": 2,
+      "generation": "Maxwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 5.64
+      }
+    },
+    "p106-090": {
+      "name": "Nvidia P106 090",
+      "vram": 3,
+      "generation": "Pascal mining",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 5.33
+      }
+    },
+    "gtx-1630": {
+      "name": "Nvidia GeForce GTX 1630",
+      "vram": 4,
+      "generation": "Turing GTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 4.97
+      }
+    },
+    "t600": {
+      "name": "Nvidia T600",
+      "vram": 4,
+      "generation": "Turing GTX",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 4.79
+      }
+    },
+    "gtx-1050": {
+      "name": "Nvidia GeForce GTX 1050",
+      "vram": 2,
+      "generation": "Pascal",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 4.57
+      }
+    },
+    "rx-560": {
+      "name": "AMD Radeon RX 560",
+      "vram": 4,
+      "generation": "GCN 4",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 4.55
+      }
+    },
+    "gtx-950": {
+      "name": "Nvidia GeForce GTX 950",
+      "vram": 2,
+      "generation": "Maxwell",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 4.36
+      }
+    },
+    "rx-550": {
+      "name": "AMD Radeon RX 550",
+      "vram": 2,
+      "generation": "GCN 4",
+      "brand": "amd",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 3.16
+      }
+    },
+    "gt-1030-gddr5": {
+      "name": "Nvidia GeForce GT 1030 (GDDR5)",
+      "vram": 2,
+      "generation": "Pascal",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 2.38
+      }
+    },
+    "gt-1030-ddr4": {
+      "name": "Nvidia GeForce GT 1030 (DDR4)",
+      "vram": 2,
+      "generation": "Pascal",
+      "brand": "nvidia",
+      "scores": {
+        "1080p": null,
+        "1440p": null,
+        "4k": null,
+        "overall": 1.43
+      }
+    }
+  }
+}
