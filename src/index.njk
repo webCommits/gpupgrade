@@ -4,6 +4,31 @@ title: "GPUpgrade | Home"
 {% extends "layouts/base.njk" %}
 
 {% block content %}
+<script>
+  // Pfad zur JSON auf GitHub Pages
+  const gpuJsonUrl = "https://webcommits.github.io/gpupgrade/assets/data/gpu-data.json";
+
+  // Globale Variable, auf die base.js usw. zugreifen kann
+  window.gpuData = null;
+
+  // Promise, das andere Scripts abwarten können
+  window.gpuDataPromise = fetch(gpuJsonUrl)
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      return response.json();
+    })
+    .then(data => {
+      console.log("GPU Data loaded (inline loader):", data);
+      window.gpuData = data;
+      return data;
+    })
+    .catch(err => {
+      console.error("Failed to load GPU data (inline loader):", err);
+      window.gpuData = { gpus: {} };
+      return window.gpuData;
+    });
+</script>
+
 <section class="hero">
   <div class="hero-container">
     <div class="hero-content">
