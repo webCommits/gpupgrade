@@ -61,7 +61,7 @@
                 </a>
                 <div class="nav-links">
                     <a href="https://webcommits.github.io/gpupgrade/" class="nav-link">Calculator</a>
-                    <!-- <a href="https://webcommits.github.io/gpupgrade/gpu/" class="nav-link">GPU List</a> -->
+                    <a href="https://webcommits.github.io/gpupgrade/gpu/" class="nav-link">GPU List</a>
                     <a href="https://webcommits.github.io/gpupgrade/gpu/compare/" class="nav-link">Compare</a>
                 </div>
                 <button class="nav-mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -70,7 +70,7 @@
             </div>
             <div class="nav-mobile-menu">
                 <a href="https://webcommits.github.io/gpupgrade/" class="nav-mobile-link">Calculator</a>
-                <!-- <a href="https://webcommits.github.io/gpupgrade/gpu/" class="nav-mobile-link">GPU List</a> -->
+                <a href="https://webcommits.github.io/gpupgrade/gpu/" class="nav-mobile-link">GPU List</a>
                 <a href="https://webcommits.github.io/gpupgrade/gpu/compare/" class="nav-mobile-link">Compare</a>
             </div>
         </nav>
@@ -78,6 +78,26 @@
 
     <main class="main" role="main">
         
+<script>
+  const gpuJsonUrl = "https://webcommits.github.io/gpupgrade/assets/data/gpu-data.json";
+  window.gpuData = null;
+
+  window.gpuDataPromise = fetch(gpuJsonUrl)
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      return response.json();
+    })
+    .then(data => {
+      console.log("GPU Data loaded (gpulist):", data);
+      window.gpuData = data;
+      return data;
+    })
+    .catch(err => {
+      console.error("Failed to load GPU data (gpulist):", err);
+      window.gpuData = { gpus: {} };
+      return window.gpuData;
+    });
+</script>
 <section class="page-header">
   <div class="container">
     <h1 class="page-title">GPU Performance List</h1>
