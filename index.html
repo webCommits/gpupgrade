@@ -86,9 +86,9 @@
       </p>
     </div>
     <div class="hero-visual">
-      <div class="hero-card">
-        <div class="hero-card-glow"></div>
-      </div>
+      <!-- <div class="hero-card"> -->
+      <div class="hero-card-glow"></div>
+      <!-- </div> -->
     </div>
   </div>
 </section>
@@ -96,6 +96,18 @@
 <section class="calculator-section">
   <div class="container">
     <div x-data="upgradeCalculator" x-init="init()" class="calculator">
+
+      <!-- Resolution Selector -->
+      <div class="input-group">
+        <h2 class="section-title">Gaming Resolution</h2>
+        <div class="resolution-selector">
+          <template x-for="resolution in ['1080p', '1440p', '4k', 'overall']" :key="resolution">
+            <button @click="changeResolution(resolution)" :class="{ 'active': selectedResolution === resolution }"
+              class="resolution-btn" x-text="resolution === 'overall' ? 'Overall' : resolution.toUpperCase()">
+            </button>
+          </template>
+        </div>
+      </div>
 
       <!-- Current GPU Selection -->
       <div class="input-group">
@@ -121,7 +133,7 @@
             <template x-for="gpu in filteredGPUs.slice(0, 8)" :key="gpu.slug">
               <div @click="selectGPU(gpu)" class="dropdown-item">
                 <span x-text="gpu.name" class="dropdown-item-name"></span>
-                <span x-text="gpu.score + ' pts'" class="dropdown-item-score"></span>
+                <span x-text="gpu.score.toFixed(1) + ' pts'" class="dropdown-item-score"></span>
               </div>
             </template>
           </div>
@@ -134,7 +146,11 @@
             <div class="selected-gpu-info">
               <h3 class="selected-gpu-name" x-text="selectedGPU?.name"></h3>
               <p class="selected-gpu-score">
-                Performance: <span x-text="selectedGPU ? selectedGPU.score + ' pts' : ''"></span>
+                Performance:
+                <span x-text="selectedGPU ? selectedGPU.score.toFixed(1) + ' pts' : ''"></span>
+                <span class="resolution-indicator"
+                  x-text="'(' + (selectedResolution === 'overall' ? 'Overall' : selectedResolution.toUpperCase()) + ')'">
+                </span>
               </p>
             </div>
             <button @click="clearSelection()" class="btn btn-secondary btn-sm">
@@ -148,12 +164,12 @@
       <div class="input-group">
         <h2 class="section-title">Minimum Performance Improvement</h2>
         <div class="slider-container">
-          <input type="range" x-model="minImprovement" min="10" max="100" step="5" class="slider"
-            style="--value: %">
+          <input type="range" x-model="minImprovement" min="10" :max="maxAllowedImprovement" step="5" class="slider"
+            :style="`--value: ${minImprovement}%`">
           <div class="slider-labels">
             <span class="slider-label">10%</span>
             <span class="slider-value" x-text="minImprovement + '%'"></span>
-            <span class="slider-label">100%</span>
+            <span class="slider-label" x-text="maxAllowedImprovement + '%'"></span>
           </div>
         </div>
       </div>
@@ -188,7 +204,9 @@
           <span class="results-count" x-text="'(' + results.length + ' found)'"></span>
         </h2>
         <p class="results-subtitle">
-          GPUs with at least <span x-text="minImprovement" class="accent-text"></span>% improvement
+          GPUs with at least <span x-text="minImprovement" class="accent-text"></span>% improvement at
+          <span x-text="selectedResolution === 'overall' ? 'Overall' : selectedResolution.toUpperCase()"
+            class="accent-text"></span>
         </p>
 
         <div class="results-grid">
@@ -204,12 +222,12 @@
               <div class="result-card-stats">
                 <div class="stat">
                   <span class="stat-label">Current</span>
-                  <span class="stat-value" x-text="result.currentScore + ' pts'"></span>
+                  <span class="stat-value" x-text="result.currentScore.toFixed(1) + ' pts'"></span>
                 </div>
                 <div class="stat-arrow">→</div>
                 <div class="stat">
                   <span class="stat-label">New</span>
-                  <span class="stat-value" x-text="result.newScore + ' pts'"></span>
+                  <span class="stat-value" x-text="result.newScore.toFixed(1) + ' pts'"></span>
                 </div>
               </div>
             </div>
@@ -230,7 +248,9 @@
         <div class="no-results-icon">🔍</div>
         <h3 class="no-results-title">No upgrades found</h3>
         <p class="no-results-text">
-          No GPUs found with at least <span x-text="minImprovement" class="accent-text"></span>% improvement.
+          No GPUs found with at least <span x-text="minImprovement" class="accent-text"></span>% improvement at
+          <span x-text="selectedResolution === 'overall' ? 'Overall' : selectedResolution.toUpperCase()"
+            class="accent-text"></span>.
         </p>
         <button @click="minImprovement = 10" class="btn btn-secondary">
           Try Lower Threshold

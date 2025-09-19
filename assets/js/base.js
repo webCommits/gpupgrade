@@ -3,51 +3,35 @@ window.gpuData = null;
 
 async function loadGPUData() {
   try {
-    const response = await fetch('/assets/data/gpus.json', { cache: 'no-store' });
+    // Fix path resolution for GitHub Pages
+    const basePath = document.querySelector('meta[name="base-path"]')?.content || '';
+    const dataPath = `${basePath}/assets/data/gpu-data.json`;
+    
+    const response = await fetch(dataPath, { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     window.gpuData = await response.json();
     console.log('GPU Data loaded:', window.gpuData);
   } catch (err) {
     console.error('Failed to load GPU data:', err);
-    window.gpuData = { gpus: {} }; // fallback
+    window.gpuData = { gpus: {}, resolutions: ['overall'] }; // fallback
   }
   return window.gpuData;
 }
 
-// Page-spezifische Initialisierung erst nach GPU-Data
+// Page-specific initialization
 document.addEventListener('DOMContentLoaded', async function() {
-  await loadGPUData(); // wartet, bis die JSON geladen ist
+  await loadGPUData();
 
   const path = window.location.pathname;
 
   if (path.includes('/gpu/') && !path.includes('/compare/')) {
-    gpuList().init();        // GPU List
+    gpuList().init();
   } else if (path.includes('/compare/')) {
-    gpuComparer().init();    // Compare Page
+    gpuComparer().init();
   } else {
-    upgradeCalculator().init(); // Startseite
+    upgradeCalculator().init();
   }
 });
-
-
-document.addEventListener('DOMContentLoaded', async function() {
-  const path = window.location.pathname;
-
-  if (path.includes('/gpu/') && !path.includes('/compare/')) {
-    console.log('GPU List page initialization...');
-    await loadGPUData();  // warten bis die Daten da sind
-    const gpuListComponent = gpuList();
-    gpuListComponent.init();
-    window.gpuListComponent = gpuListComponent; // optional, für Debug
-  } else if (path.includes('/compare/')) {
-    await loadGPUData();
-    console.log('GPU Compare page initialized');
-  } else {
-    await loadGPUData();
-    console.log('GPU Calculator page initialized');
-  }
-});
-
 
 // ===== MOBILE NAVIGATION =====
 document.addEventListener('DOMContentLoaded', function() {
@@ -60,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
       mobileToggle.setAttribute('aria-expanded', !isExpanded);
       mobileMenu.classList.toggle('show');
       
-      // Animate hamburger icon
       const icon = mobileToggle.querySelector('.nav-mobile-icon');
       if (icon) {
         icon.style.transform = isExpanded ? 'none' : 'rotate(45deg)';
@@ -81,6 +64,7 @@ function upgradeCalculator() {
     results: [],
     calculatorRun: false,
     isCalculating: false,
+    selectedResolution: 'overall',
 
     init() {
       // Close dropdown when clicking outside
@@ -103,6 +87,11 @@ function upgradeCalculator() {
       }
     },
 
+    getGPUScore(gpu, resolution = null) {
+      const res = resolution || this.selectedResolution;
+      return gpu.scores?.[res] || gpu.score || 0;
+    },
+
     searchGPUs() {
       if (!window.gpuData?.gpus || this.searchQuery.length < 2) {
         this.filteredGPUs = [];
@@ -111,16 +100,20 @@ function upgradeCalculator() {
 
       const gpuList = Object.entries(window.gpuData.gpus).map(([slug, gpu]) => ({
         slug,
-        ...gpu
+        ...gpu,
+        score: this.getGPUScore(gpu)
       }));
 
       this.filteredGPUs = gpuList.filter(gpu =>
         gpu.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-      ).slice(0, 10); // Limit to 10 results for performance
+      ).slice(0, 10);
     },
 
     selectGPU(gpu) {
-      this.selectedGPU = gpu;
+      this.selectedGPU = {
+        ...gpu,
+        score: this.getGPUScore(gpu)
+      };
       this.searchQuery = gpu.name;
       this.showDropdown = false;
       this.results = [];
@@ -129,7 +122,7 @@ function upgradeCalculator() {
       // Calculate maximum possible improvement
       try {
         const current = this.selectedGPU.score;
-        const allScores = Object.values(window.gpuData.gpus).map(g => g.score || 0);
+        const allScores = Object.values(window.gpuData.gpus).map(g => this.getGPUScore(g));
         const maxScore = Math.max(...allScores);
         const maxImp = ((maxScore / current) - 1) * 100;
         this.maxAllowedImprovement = Math.max(Math.ceil(maxImp), 100);
@@ -142,7 +135,6 @@ function upgradeCalculator() {
         this.maxAllowedImprovement = 100;
       }
 
-      // Add subtle success feedback
       this.showNotification('GPU selected successfully', 'success');
     },
 
@@ -155,6 +147,25 @@ function upgradeCalculator() {
       this.maxAllowedImprovement = 100;
     },
 
+    changeResolution(newResolution) {
+      this.selectedResolution = newResolution;
+      
+      // Update selected GPU score
+      if (this.selectedGPU) {
+        this.selectedGPU.score = this.getGPUScore(this.selectedGPU);
+      }
+      
+      // Recalculate if we have results
+      if (this.results.length > 0) {
+        this.calculateUpgrades();
+      }
+      
+      // Update search results
+      if (this.filteredGPUs.length > 0) {
+        this.searchGPUs();
+      }
+    },
+
     async calculateUpgrades() {
       if (!this.selectedGPU || !window.gpuData?.gpus) {
         this.showNotification('Please select a GPU first', 'error');
@@ -163,10 +174,9 @@ function upgradeCalculator() {
 
       this.isCalculating = true;
       
-      // Simulate calculation delay for better UX
       await new Promise(resolve => setTimeout(resolve, 500));
 
-      const baseScore = this.selectedGPU.score;
+      const baseScore = this.getGPUScore(this.selectedGPU);
       if (!baseScore || baseScore <= 0) {
         this.showNotification('Invalid GPU score', 'error');
         this.isCalculating = false;
@@ -175,7 +185,7 @@ function upgradeCalculator() {
 
       this.results = Object.entries(window.gpuData.gpus)
         .map(([slug, gpu]) => {
-          const gpuScore = gpu.score;
+          const gpuScore = this.getGPUScore(gpu);
           if (!gpuScore || gpuScore <= 0 || gpuScore <= baseScore) return null;
 
           const improvement = ((gpuScore / baseScore) - 1) * 100;
@@ -195,7 +205,6 @@ function upgradeCalculator() {
       this.calculatorRun = true;
       this.isCalculating = false;
 
-      // Show notification based on results
       if (this.results.length > 0) {
         this.showNotification(`Found ${this.results.length} upgrade options`, 'success');
       } else {
@@ -204,7 +213,6 @@ function upgradeCalculator() {
     },
 
     showNotification(message, type = 'info') {
-      // Simple notification system
       const notification = document.createElement('div');
       notification.className = `notification notification-${type}`;
       notification.textContent = message;
@@ -244,13 +252,14 @@ function gpuList() {
     maxPerformance: 0,
     visibleCount: 20,
     viewMode: 'grid',
+    selectedResolution: 'overall',
 
     init() {
       if (window.gpuData?.gpus) {
         this.allGPUs = Object.entries(window.gpuData.gpus).map(([slug, gpu]) => ({
           slug,
-          name: gpu.name,
-          score: gpu.score || 0
+          ...gpu,
+          score: this.getGPUScore(gpu)
         }));
         
         this.maxPerformance = Math.max(...this.allGPUs.map(gpu => gpu.score));
@@ -258,7 +267,6 @@ function gpuList() {
         this.sortGPUs();
       }
 
-      // Load comparison GPUs from localStorage
       const savedComparison = localStorage.getItem('comparisonGPUs');
       if (savedComparison) {
         try {
@@ -269,10 +277,27 @@ function gpuList() {
       }
     },
 
+    getGPUScore(gpu, resolution = null) {
+      const res = resolution || this.selectedResolution;
+      return gpu.scores?.[res] || gpu.score || 0;
+    },
+
+    changeResolution(newResolution) {
+      this.selectedResolution = newResolution;
+      
+      // Update all GPU scores
+      this.allGPUs = this.allGPUs.map(gpu => ({
+        ...gpu,
+        score: this.getGPUScore(gpu)
+      }));
+      
+      this.maxPerformance = Math.max(...this.allGPUs.map(gpu => gpu.score));
+      this.filterGPUs();
+    },
+
     filterGPUs() {
       let filtered = [...this.allGPUs];
 
-      // Text search
       if (this.searchQuery.length >= 1) {
         const query = this.searchQuery.toLowerCase();
         filtered = filtered.filter(gpu =>
@@ -280,23 +305,16 @@ function gpuList() {
         );
       }
 
-      // Brand filter
       if (this.brandFilter === 'nvidia') {
-        filtered = filtered.filter(gpu => {
-          const name = gpu.name.toLowerCase();
-          return name.includes('rtx') || name.includes('gtx') || 
-                 name.includes('geforce') || name.includes('titan');
-        });
+        filtered = filtered.filter(gpu => gpu.brand === 'nvidia');
       } else if (this.brandFilter === 'amd') {
-        filtered = filtered.filter(gpu => {
-          const name = gpu.name.toLowerCase();
-          return name.includes('rx') || name.includes('radeon') ||
-                 name.includes('vega') || name.includes('fury');
-        });
+        filtered = filtered.filter(gpu => gpu.brand === 'amd');
+      } else if (this.brandFilter === 'intel') {
+        filtered = filtered.filter(gpu => gpu.brand === 'intel');
       }
 
       this.filteredGPUs = filtered;
-      this.visibleCount = 20; // Reset visible count when filtering
+      this.visibleCount = 20;
       this.sortGPUs();
     },
 
@@ -340,7 +358,10 @@ function gpuList() {
 
       if (index === -1) {
         if (this.selectedForComparison.length < 4) {
-          this.selectedForComparison.push(gpu);
+          this.selectedForComparison.push({
+            ...gpu,
+            score: this.getGPUScore(gpu)
+          });
           this.saveComparisonToStorage();
         } else {
           alert('You can compare up to 4 GPUs at once.');
@@ -352,7 +373,10 @@ function gpuList() {
     },
 
     useInCalculator(gpu) {
-      localStorage.setItem('selectedGPU', JSON.stringify(gpu));
+      localStorage.setItem('selectedGPU', JSON.stringify({
+        ...gpu,
+        score: this.getGPUScore(gpu)
+      }));
       window.location.href = '/';
     },
 
@@ -362,7 +386,6 @@ function gpuList() {
         return;
       }
 
-      // For now, just take the first two GPUs for comparison
       const gpu1 = this.selectedForComparison[0];
       const gpu2 = this.selectedForComparison[1];
       
@@ -401,9 +424,9 @@ function gpuComparer() {
     filteredGPUs2: [],
     comparison: null,
     isComparing: false,
+    selectedResolution: 'overall',
 
     init() {
-      // Close dropdowns when clicking outside
       document.addEventListener('click', e => {
         if (!e.target.closest('[x-data*="gpuComparer"]')) {
           this.showDropdown1 = false;
@@ -411,8 +434,27 @@ function gpuComparer() {
         }
       });
 
-      // Load GPUs from localStorage if available
       this.loadSavedGPUs();
+    },
+
+    getGPUScore(gpu, resolution = null) {
+      const res = resolution || this.selectedResolution;
+      return gpu.scores?.[res] || gpu.score || 0;
+    },
+
+    changeResolution(newResolution) {
+      this.selectedResolution = newResolution;
+      
+      if (this.gpu1) {
+        this.gpu1.score = this.getGPUScore(this.gpu1);
+      }
+      if (this.gpu2) {
+        this.gpu2.score = this.getGPUScore(this.gpu2);
+      }
+      
+      if (this.comparison) {
+        this.calculateComparison();
+      }
     },
 
     loadSavedGPUs() {
@@ -439,7 +481,6 @@ function gpuComparer() {
         }
       }
 
-      // If both GPUs loaded, automatically calculate comparison
       if (this.gpu1 && this.gpu2) {
         setTimeout(() => this.calculateComparison(), 500);
       }
@@ -457,7 +498,8 @@ function gpuComparer() {
 
       const gpuList = Object.entries(window.gpuData.gpus).map(([slug, gpu]) => ({
         slug, 
-        ...gpu
+        ...gpu,
+        score: this.getGPUScore(gpu)
       }));
       
       const filtered = gpuList.filter(gpu => 
@@ -469,13 +511,18 @@ function gpuComparer() {
     },
 
     selectGPU(gpu, target) {
+      const gpuWithScore = {
+        ...gpu,
+        score: this.getGPUScore(gpu)
+      };
+
       if (target === 'gpu1') {
-        this.gpu1 = gpu;
+        this.gpu1 = gpuWithScore;
         this.gpu1Query = gpu.name;
         this.showDropdown1 = false;
         this.filteredGPUs1 = [];
       } else {
-        this.gpu2 = gpu;
+        this.gpu2 = gpuWithScore;
         this.gpu2Query = gpu.name;
         this.showDropdown2 = false;
         this.filteredGPUs2 = [];
@@ -501,7 +548,6 @@ function gpuComparer() {
 
       this.isComparing = true;
       
-      // Simulate comparison delay for better UX
       await new Promise(resolve => setTimeout(resolve, 800));
 
       const improvement = ((this.gpu2.score / this.gpu1.score) - 1) * 100;
@@ -540,57 +586,7 @@ function gpuComparer() {
   };
 }
 
-// ===== UTILITY FUNCTIONS =====
-
-// Smooth scroll to element
-function scrollToElement(selector, offset = 0) {
-  const element = document.querySelector(selector);
-  if (element) {
-    const elementTop = element.offsetTop - offset;
-    window.scrollTo({
-      top: elementTop,
-      behavior: 'smooth'
-    });
-  }
-}
-
-// Format number with commas
-function formatNumber(num) {
-  return new Intl.NumberFormat().format(num);
-}
-
-// Debounce function for search inputs
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
-// Add keyboard navigation for dropdowns
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    // Close all dropdowns on escape
-    const dropdowns = document.querySelectorAll('[x-show*="showDropdown"]');
-    dropdowns.forEach(dropdown => {
-      // Trigger Alpine.js to close dropdowns
-      const component = dropdown.closest('[x-data]');
-      if (component && component._x_dataStack) {
-        const data = component._x_dataStack[0];
-        if (data.showDropdown !== undefined) data.showDropdown = false;
-        if (data.showDropdown1 !== undefined) data.showDropdown1 = false;
-        if (data.showDropdown2 !== undefined) data.showDropdown2 = false;
-      }
-    });
-  }
-});
-
-// Add CSS animations
+// ===== CSS ANIMATIONS =====
 const style = document.createElement('style');
 style.textContent = `
   @keyframes slideInRight {
@@ -606,28 +602,33 @@ style.textContent = `
   .notification {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
+
+  .resolution-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .resolution-btn {
+    padding: 8px 16px;
+    border: 2px solid var(--border);
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+  }
+
+  .resolution-btn:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+  }
+
+  .resolution-btn.active {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: white;
+  }
 `;
 document.head.appendChild(style);
-
-// Initialize page-specific functionality based on URL
-document.addEventListener('DOMContentLoaded', function() {
-  const path = window.location.pathname;
-  
-  if (path.includes('/gpu/') && !path.includes('/compare/')) {
-    console.log('GPU List page initialized');
-  } else if (path.includes('/compare/')) {
-    console.log('GPU Compare page initialized');
-  } else {
-    console.log('GPU Calculator page initialized');
-  }
-});
-
-// Performance monitoring
-if (window.performance) {
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
-      console.log(`Page load time: ${loadTime}ms`);
-    }, 0);
-  });
-}
