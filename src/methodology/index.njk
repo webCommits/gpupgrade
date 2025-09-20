@@ -1,0 +1,238 @@
+---
+title: "GPUpgrade | Methodology"
+---
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Performance Rating
+        <span class="hero-title-accent">Methodology</span>
+      </h1>
+      <p class="hero-subtitle">
+        Understanding how we calculate and adjust GPU performance scores across different resolutions.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="methodology-section">
+  <div class="container">
+    <div class="methodology-content">
+
+      <!-- Overview -->
+      <div class="methodology-block">
+        <h2 class="section-title methodology">Overview</h2>
+        <p class="methodology-text">
+          For each benchmark, every graphics card receives a score from 0 to 100, calculated as a percentage relative to
+          the top performer in that specific benchmark. Our methodology combines pure raster performance data with
+          practical considerations like VRAM capacity and modern GPU features.
+        </p>
+      </div>
+
+      <!-- Raw Performance Calculations -->
+      <div class="methodology-block">
+        <h2 class="section-title methodology">Raw Performance Calculations</h2>
+        <p class="methodology-text">
+          The <strong>raw performance rating</strong> represents pure raster performance without upscaling or ray
+          tracing, based on data from eight different 3DMark benchmarks and TechPowerUp performance rankings. Each
+          resolution category uses a different weighting formula:
+        </p>
+
+        <div class="formula-grid">
+          <div class="formula-card">
+            <h3 class="formula-title">Overall Performance</h3>
+            <div class="formula-content">
+              <p class="formula-text">
+                (TPU × 2) + Fire Strike Ultra + Wild Life Extreme + Night Raid + Firestrike + Steel Nomad (DX12) + Steel
+                Nomad Light (DX12) + Time Spy + Time Spy Extreme
+              </p>
+              <p class="formula-divisor">÷ 10</p>
+            </div>
+          </div>
+
+          <div class="formula-card">
+            <h3 class="formula-title">1080p Performance</h3>
+            <div class="formula-content">
+              <p class="formula-text">
+                TPU + Night Raid + (Fire Strike × 2.5) + (Time Spy ÷ 2)
+              </p>
+              <p class="formula-divisor">÷ 5</p>
+            </div>
+          </div>
+
+          <div class="formula-card">
+            <h3 class="formula-title">1440p Performance</h3>
+            <div class="formula-content">
+              <p class="formula-text">
+                TPU + (Steel Nomad Light × 1.5) + (Time Spy × 2) + (Port Royal ÷ 2)
+              </p>
+              <p class="formula-divisor">÷ 5</p>
+            </div>
+          </div>
+
+          <div class="formula-card">
+            <h3 class="formula-title">4K Performance</h3>
+            <div class="formula-content">
+              <p class="formula-text">
+                (TPU × 2) + Fire Strike Ultra + Wild Life Extreme + Steel Nomad + Time Spy Extreme
+              </p>
+              <p class="formula-divisor">÷ 6</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VRAM Adjustments -->
+      <div class="methodology-block">
+        <h2 class="section-title methodology">VRAM Adjustments</h2>
+        <p class="methodology-text">
+          The raw performance score is first adjusted to account for VRAM limitations, as cards with insufficient VRAM
+          may experience performance degradation in modern games. This adjustment penalizes cards with less than 16GB of
+          VRAM:
+        </p>
+
+        <div class="adjustment-grid">
+          <div class="adjustment-card">
+            <h4 class="adjustment-title">Overall</h4>
+            <p class="adjustment-formula">
+              (Score × 5) + ((Score × min(VRAM, 13)) ÷ 13) ÷ 6
+            </p>
+          </div>
+
+          <div class="adjustment-card">
+            <h4 class="adjustment-title">1080p</h4>
+            <p class="adjustment-formula">
+              (Score × 6) + ((Score × min(VRAM, 12.5)) ÷ 12.5) ÷ 7
+            </p>
+          </div>
+
+          <div class="adjustment-card">
+            <h4 class="adjustment-title">1440p</h4>
+            <p class="adjustment-formula">
+              (Score × 4) + ((Score × min(VRAM, 13)) ÷ 13) ÷ 5
+            </p>
+          </div>
+
+          <div class="adjustment-card">
+            <h4 class="adjustment-title">4K</h4>
+            <p class="adjustment-formula">
+              (Score × 4) + ((Score × min(VRAM, 13.5)) ÷ 13.5) ÷ 5
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features & Functionality -->
+      <div class="methodology-block">
+        <h2 class="section-title methodology">Features & Functionality Multipliers</h2>
+        <p class="methodology-text">
+          After VRAM adjustment, scores are further modified based on modern GPU features and capabilities. These
+          multipliers vary by resolution to reflect real-world usage patterns:
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <h4 class="feature-title">Upscaling Technology</h4>
+            <div class="feature-content">
+              <p class="feature-weight">Weight: 10</p>
+              <p class="feature-desc">Blackwell DLSS SR (best) to FSR 2 SR (baseline)</p>
+              <div class="feature-adjustments">
+                <span class="adjustment-tag">1080p: Not considered</span>
+                <span class="adjustment-tag">1440p: Half weight</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4 class="feature-title">Frame Generation</h4>
+            <div class="feature-content">
+              <p class="feature-weight">Weight: 4</p>
+              <p class="feature-desc">DLSS 4 MFG (best) to no frame generation (baseline)</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4 class="feature-title">I/O Bandwidth</h4>
+            <div class="feature-content">
+              <p class="feature-weight">Weight: 3</p>
+              <p class="feature-desc">DP 2.1 UHBR20 (80 Gbps) to DP 1.2 HBR2 (21.6 Gbps)</p>
+              <div class="feature-adjustments">
+                <span class="adjustment-tag">1080p: Half weight</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4 class="feature-title">Hardware Ray Tracing</h4>
+            <div class="feature-content">
+              <p class="feature-weight">Weight: 8</p>
+              <p class="feature-desc">Nvidia Blackwell (best) to no hardware RT (baseline)</p>
+              <div class="feature-adjustments">
+                <span class="adjustment-tag">1440p: Not considered</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4 class="feature-title">Driver Support</h4>
+            <div class="feature-content">
+              <p class="feature-weight">Weight: 4</p>
+              <p class="feature-desc">Full support (best) to legacy/extended support (reduced)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resolution-Specific Notes -->
+      <div class="methodology-block">
+        <h2 class="section-title methodology">Resolution-Specific Adjustments</h2>
+        <div class="resolution-notes">
+          <div class="resolution-note">
+            <h4 class="note-title">1080p Considerations</h4>
+            <p class="note-text">
+              Upscaling technologies are not factored in, as native 1080p performance is typically sufficient. I/O
+              bandwidth receives half weight since high refresh rate limitations are less critical at this resolution.
+            </p>
+          </div>
+
+          <div class="resolution-note">
+            <h4 class="note-title">1440p Considerations</h4>
+            <p class="note-text">
+              Upscaling receives half weight as it becomes more relevant but not critical. Ray tracing is not separately
+              weighted since Port Royal benchmark data already incorporates RT performance.
+            </p>
+          </div>
+
+          <div class="resolution-note">
+            <h4 class="note-title">4K Considerations</h4>
+            <p class="note-text">
+              All feature multipliers are applied at full weight, reflecting the demanding nature of 4K gaming where
+              every advantage becomes crucial for playable performance.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final Note -->
+      <div class="methodology-block">
+        <div class="disclaimer-card">
+          <h3 class="disclaimer-title">Methodology Notes</h3>
+          <p class="disclaimer-text">
+            The weighting assigned to each factor will always be somewhat subjective and dependent on individual use
+            cases. Our approach aims to be as methodical and factually grounded as possible, balancing raw performance
+            with practical considerations that affect real-world gaming experience.
+          </p>
+          <p class="disclaimer-text">
+            Benchmark data is sourced from 3DMark test suites and TechPowerUp's comprehensive GPU database, ensuring
+            consistent and reliable performance measurements across all tested graphics cards.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}
