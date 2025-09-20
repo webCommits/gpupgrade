@@ -400,69 +400,6 @@ body {
   width: 100%;
 }
 
-@media (max-width: 480px) {
-  .container {
-    padding: 0 var(--space-4);
-  }
-
-  .hero {
-    padding: var(--space-12) 0;
-  }
-
-  .hero-title {
-    font-size: var(--font-size-2xl);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-size-base);
-  }
-
-  .page-title {
-    font-size: var(--font-size-2xl);
-  }
-
-  .section-title {
-    font-size: var(--font-size-xl);
-  }
-
-  .search-input {
-    font-size: 16px;
-    /* Prevent zoom on iOS */
-  }
-
-  .btn-large {
-    font-size: var(--font-size-base);
-    padding: var(--space-3) var(--space-6);
-  }
-
-  .filters-panel {
-    padding: var(--space-4);
-  }
-
-  .radio-group {
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .select-group {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .gpu-selector h2 {
-    font-size: small;
-  }
-
-  .view-toggle {
-    order: -1;
-    margin-bottom: var(--space-2);
-  }
-
-  .gpu-card {
-    width: 100%;
-  }
-}
-
 /* ===== ACCESSIBILITY ===== */
 @media (prefers-reduced-motion: reduce) {
 
@@ -683,12 +620,6 @@ body {
   .comparison-card {
     border-width: 2px;
   }
-}
-
-display: flex;
-justify-content: center;
-align-items: center;
-position: relative;
 }
 
 .hero-card {
@@ -1994,31 +1925,6 @@ position: relative;
   transform: translateY(100%);
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
-  .nav-mobile-toggle {
-    display: flex;
-  }
-
-  .nav-mobile-menu.show {
-    display: flex;
-  }
-
-  .hero-container {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-    text-align: center;
-  }
-
-  .hero-title {
-    font-size: var(--font-size-3xl);
-  }
-}
-
 /* Methodology */
 
 
@@ -2219,21 +2125,297 @@ position: relative;
   margin-bottom: 0;
 }
 
-/* Mobile Responsiveness */
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-mobile-toggle {
+    display: flex;
+  }
+  .nav-mobile-menu.show {
+    display: flex;
+  }
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
+  .hero-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  /* Methodology page */
   .methodology-section {
     padding: 40px 0 60px;
   }
-
   .formula-grid {
     grid-template-columns: 1fr;
   }
-
   .features-grid {
     grid-template-columns: 1fr;
   }
-
   .adjustment-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Compare page tablet adjustments */
+  .comparison-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .comparison-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 540px) {
+  /* GPU Selector fixes */
+  .gpu-selectors {
+    gap: 20px;
+  }
+  
+  .gpu-selector {
+    width: 100%;
+    min-width: unset;
+  }
+  
+  .selected-gpu {
+    padding: 16px;
+    margin-top: 12px;
+  }
+  
+  .selected-gpu-content {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .selected-gpu-info {
+    width: 100%;
+    min-width: unset;
+  }
+  
+  .selected-gpu-name {
+    font-size: 16px;
+    line-height: 1.3;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  
+  .selected-gpu-score {
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  
+  /* Force vertical layout for comparison result */
+  .comparison-result .comparison-cards {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+  
+  /* Performance difference at the top */
+  .comparison-result .performance-difference {
+    order: -1 !important;
+    align-self: center !important;
+    margin: 0 0 20px 0 !important;
+    width: auto !important;
+  }
+  
+  /* Both GPU cards take full width */
+  .comparison-result .comparison-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+  }
+  
+  /* Fix card titles */
+  .comparison-result .comparison-card-title {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+    display: block !important;
+    width: 100% !important;
+  }
+  
+  .comparison-card-header {
+    margin-bottom: 12px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  
+  .winner-badge {
+    font-size: 12px;
+    padding: 4px 8px;
+    align-self: flex-start;
+  }
+  
+  .difference-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .difference-value {
+    font-size: 18px;
+  }
+  
+  .difference-text {
+    font-size: 13px;
+    margin-top: 8px;
+    text-align: center;
+  }
+  
+  /* Actions */
+  .comparison-actions {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+  
+  .comparison-actions .btn {
+    width: 100% !important;
+    justify-content: center;
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+  
+  /* Dropdown improvements */
+  .dropdown {
+    left: 0;
+    right: 0;
+    width: auto;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .dropdown-item {
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .dropdown-item-name {
+    font-size: 14px;
+    line-height: 1.3;
+    word-break: break-word;
+  }
+  
+  .dropdown-item-score {
+    font-size: 12px;
+    opacity: 0.7;
+  }
+  
+  .compare-button-section {
+    margin: 24px 0;
+  }
+  
+  .loading-spinner {
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .spinner {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+  .hero {
+    padding: var(--space-12) 0;
+  }
+  .hero-title {
+    font-size: var(--font-size-2xl);
+  }
+  .hero-subtitle {
+    font-size: var(--font-size-base);
+  }
+  .page-title {
+    font-size: var(--font-size-2xl);
+  }
+  .section-title {
+    font-size: var(--font-size-xl);
+  }
+  .search-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  .btn-large {
+    font-size: var(--font-size-base);
+    padding: var(--space-3) var(--space-6);
+    width: 100%;
+  }
+  .filters-panel {
+    padding: var(--space-4);
+  }
+  .radio-group {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .select-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .gpu-selector h2 {
+    font-size: small;
+  }
+  .view-toggle {
+    order: -1;
+    margin-bottom: var(--space-2);
+  }
+  .gpu-card {
+    width: 100%;
+  }
+  
+  /* Very small screen refinements */
+  .selected-gpu-name,
+  .comparison-result .comparison-card-title {
+    font-size: 15px !important;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+  
+  .btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+    align-self: flex-end;
+  }
+  
+  .help-text {
+    font-size: 13px;
+    margin-top: 8px;
+    text-align: center;
+  }
+  
+  .compare-section {
+    padding: 40px 0 60px;
+  }
+  
+  .difference-circle {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .difference-value {
+    font-size: 16px !important;
   }
 }
